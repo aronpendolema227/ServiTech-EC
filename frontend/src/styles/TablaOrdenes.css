@@ -370,3 +370,129 @@
     justify-content: center;
   }
 }
+
+
+
+/* ==========================================
+   SERVITECH EC - ACCIONES DE LA TABLA
+   ========================================== */
+
+.tabla-ordenes-acciones {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+/* ==========================================
+   BOTON VISUALIZAR
+   ========================================== */
+
+.tabla-ordenes-btn-ver {
+  width: 36px;
+  height: 36px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border: none;
+  border-radius: 8px;
+
+  background: transparent;
+  color: #306a7e;
+
+  cursor: pointer;
+
+  transition: background 0.2s ease;
+}
+
+.tabla-ordenes-btn-ver:hover {
+  background: #eaf2f4;
+}
+
+.tabla-ordenes-btn-ver:focus-visible {
+  outline: 2px solid #306a7e;
+  outline-offset: 2px;
+}
+
+/* ENCABEZADO DE ACCIONES */
+
+.tabla-ordenes th:last-child {
+  text-align: center;
+}
+
+
+/* ==========================================
+   SERVITECH EC - BOTON EDITAR ORDEN
+   ========================================== */
+
+.tabla-ordenes-btn-editar {
+  width: 36px;
+  height: 36px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border: none;
+  border-radius: 8px;
+
+  background: transparent;
+  color: #4b5320;
+
+  cursor: pointer;
+
+  transition: background 0.2s ease;
+}
+
+/* HOVER */
+
+.tabla-ordenes-btn-editar:hover {
+  background: #eef0e4;
+}
+
+/* ACCESIBILIDAD */
+
+.tabla-ordenes-btn-editar:focus-visible {
+  outline: 2px solid #4b5320;
+  outline-offset: 2px;
+}
+
+
+
+/* ==========================================
+   SERVITECH EC - BOTON ELIMINAR ORDEN
+   ========================================== */
+
+.tabla-ordenes-btn-eliminar {
+  width: 36px;
+  height: 36px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border: none;
+  border-radius: 8px;
+
+  background: transparent;
+  color: #a53d3d;
+
+  cursor: pointer;
+
+  transition: background 0.2s ease;
+}
+
+/* HOVER */
+
+.tabla-ordenes-btn-eliminar:hover {
+  background: #f8e8e8;
+}
+
+/* ACCESIBILIDAD */
+
+.tabla-ordenes-btn-eliminar:focus-visible {
+  outline: 2px solid #a53d3d;
+  outline-offset: 2px;
+}

@@ -6,6 +6,9 @@ import {
   ArrowDownUp,
   ChevronLeft,
   ChevronRight,
+  Eye,
+  Pencil,
+  Trash2,
 } from "lucide-react";
 
 import "../../styles/TablaOrdenes.css";
@@ -14,11 +17,16 @@ import "../../styles/TablaOrdenes.css";
 // SERVITECH EC - TABLA GENERAL DE ORDENES
 // ==========================================
 const REGISTROS_POR_PAGINA = 10;
+
 function TablaOrdenes({
   ordenes = [],
   cargando = false,
   error = "",
+  onVerOrden,
+  onEditarOrden,
+  onEliminarOrden,
 }) {
+
 
   
   // ========================================
@@ -297,6 +305,7 @@ function TablaOrdenes({
               <th>Problema</th>
               <th>Estado</th>
               <th>Fecha</th>
+              <th>Acciones</th>
             </tr>
           </thead>
 
@@ -305,19 +314,19 @@ function TablaOrdenes({
 
             {cargando ? (
               <tr>
-                <td colSpan={7} className="tabla-ordenes-vacio">
+                <td colSpan={8} className="tabla-ordenes-vacio">
                   Cargando órdenes de servicio...
                 </td>
               </tr>
             ) : error ? (
               <tr>
-                <td colSpan={7} className="tabla-ordenes-vacio">
+                <td colSpan={8} className="tabla-ordenes-vacio">
                   No se pudieron consultar las órdenes.
                 </td>
               </tr>
             ) : ordenesFiltradas.length === 0? (
               <tr>
-                <td colSpan={7} className="tabla-ordenes-vacio">
+                <td colSpan={8} className="tabla-ordenes-vacio">
                   {ordenesOrdenadas.length === 0
                     ? "No existen órdenes registradas."
                     : "No se encontraron órdenes con los filtros seleccionados."}
@@ -366,6 +375,56 @@ function TablaOrdenes({
                     <td>
                       {formatearFecha(orden.fechaIngreso)}
                     </td>
+                    
+                    {/* ====================================
+                        ACCIONES DE LA ORDEN
+                        ==================================== */}
+                    <td>
+                      <div className="tabla-ordenes-acciones">
+
+                        {/* VISUALIZAR ORDEN */}
+                        <button
+                          type="button"
+                          className="tabla-ordenes-btn-ver"
+                          onClick={() => onVerOrden(orden)}
+                          aria-label={`Visualizar orden ${orden.id}`}
+                          title="Visualizar orden"
+                        >
+                          <Eye size={19} strokeWidth={1.8} />
+                        </button>
+                        
+                        {/* ====================================
+                            EDITAR ORDEN
+                            ==================================== */}
+                        <button
+                          type="button"
+                          className="tabla-ordenes-btn-editar"
+                          onClick={() => onEditarOrden(orden)}
+                          aria-label={`Editar orden ${orden.id}`}
+                          title="Editar orden"
+                        >
+                          <Pencil size={19} strokeWidth={1.8} />
+                        </button>
+
+                        
+                        {/* ====================================
+                            ELIMINAR ORDEN
+                            ==================================== */}
+                        <button
+                          type="button"
+                          className="tabla-ordenes-btn-eliminar"
+                          onClick={() => onEliminarOrden(orden)}
+                          aria-label={`Eliminar orden ${orden.id}`}
+                          title="Eliminar orden"
+                        >
+                          <Trash2 size={19} strokeWidth={1.8} />
+                        </button>
+
+
+
+                      </div>
+                    </td>
+
 
                   </tr>
                 );

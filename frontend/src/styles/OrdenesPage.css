@@ -220,3 +220,59 @@
     font-size: 16px;
   }
 }
+
+
+
+/* ==========================================
+   SERVITECH EC - BOTON NUEVA ORDEN
+   ========================================== */
+
+.ordenes-pagina-btn-nueva {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+
+  margin-left: auto;
+  padding: 12px 18px;
+
+  border: 1px solid #265255;
+  border-radius: 9px;
+
+  background: #265255;
+  color: #ffffff;
+
+  font-size: 13px;
+  font-weight: 600;
+  white-space: nowrap;
+  cursor: pointer;
+
+  transition:
+    background 0.2s ease,
+    transform 0.2s ease;
+}
+
+.ordenes-pagina-btn-nueva:hover {
+  background: #306a7e;
+  transform: translateY(-1px);
+}
+
+.ordenes-pagina-btn-nueva:focus-visible {
+  outline: 2px solid #306a7e;
+  outline-offset: 3px;
+}
+
+/* ==========================================
+   RESPONSIVE DEL ENCABEZADO
+   ========================================== */
+
+@media (max-width: 700px) {
+  .ordenes-pagina-listado-header {
+    flex-wrap: wrap;
+  }
+
+  .ordenes-pagina-btn-nueva {
+    width: 100%;
+    margin-left: 0;
+  }
+}

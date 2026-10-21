@@ -7,10 +7,20 @@ import {
   Wrench,
   CircleCheck,
   ListFilter,
+  Plus,
 } from "lucide-react";
 
-import { listarOrdenes } from "../services/ordenServicioService";
+import {
+  listarOrdenes,
+  crearOrden,
+  actualizarOrden,
+  eliminarOrden,
+} from "../services/ordenServicioService";
 import TablaOrdenes from "../components/ordenes/TablaOrdenes";
+import OrdenFormulario from "../components/ordenes/OrdenFormulario";
+import OrdenDetalle from "../components/ordenes/OrdenDetalle";
+import OrdenEditar from "../components/ordenes/OrdenEditar";
+import OrdenEliminar from "../components/ordenes/OrdenEliminar";
 import "../styles/OrdenesPage.css";
 
 // ==========================================
@@ -25,6 +35,28 @@ function OrdenesPage() {
   const [ordenes, setOrdenes] = useState([]);
   const [cargando, setCargando] = useState(true);
   const [error, setError] = useState("");
+  // ========================================
+  // CONTROL DEL FORMULARIO DE REGISTRO
+  // ========================================
+  const [modalAbierto, setModalAbierto] = useState(false);
+  
+  // ========================================
+  // CONTROL DE VISUALIZACION DE ORDENES
+  // ========================================
+  const [ordenSeleccionada, setOrdenSeleccionada] = useState(null);
+  
+  // ========================================
+  // CONTROL DE EDICION DE ORDENES
+  // ========================================
+  const [ordenEnEdicion, setOrdenEnEdicion] = useState(null);
+  
+  // ========================================
+  // CONTROL DE ELIMINACION DE ORDENES
+  // ========================================
+  const [ordenAEliminar, setOrdenAEliminar] = useState(null);
+
+
+
 
   // ========================================
   // CONSULTAR ORDENES DESDE POSTGRESQL
@@ -65,6 +97,64 @@ function OrdenesPage() {
       activo = false;
     };
   }, []);
+
+  
+  // ========================================
+  // CREATE - REGISTRAR NUEVA ORDEN
+  // ========================================
+  const guardarNuevaOrden = async (datos) => {
+
+    // 1. Registrar la orden mediante Spring Boot
+    const nuevaOrden = await crearOrden(datos);
+
+    // 2. Actualizar los registros sin recargar
+    setOrdenes((anteriores) => [
+      ...anteriores,
+      nuevaOrden,
+    ]);
+
+    // 3. Limpiar posibles errores anteriores
+    setError("");
+  };
+  // ========================================
+  // UPDATE - ACTUALIZAR ORDEN DE SERVICIO
+  // ========================================
+  const guardarEdicionOrden = async (id, datos) => {
+
+    // 1. Enviar actualizacion a Spring Boot
+    const ordenActualizada = await actualizarOrden(id, datos);
+
+    // 2. Actualizar los registros locales
+    setOrdenes((anteriores) =>
+      anteriores.map((orden) =>
+        Number(orden.id) === Number(id)
+          ? ordenActualizada
+          : orden
+      )
+    );
+
+    // 3. Limpiar errores anteriores
+    setError("");
+  };
+  
+  // ========================================
+  // DELETE - ELIMINAR ORDEN DE SERVICIO
+  // ========================================
+  const confirmarEliminarOrden = async (id) => {
+
+    // 1. Eliminar mediante Spring Boot
+    await eliminarOrden(id);
+
+    // 2. Actualizar registros locales
+    setOrdenes((anteriores) =>
+      anteriores.filter(
+        (orden) => Number(orden.id) !== Number(id)
+      )
+    );
+
+    // 3. Limpiar errores anteriores
+    setError("");
+  };
 
   // ========================================
   // CALCULAR INDICADORES
@@ -174,7 +264,12 @@ function OrdenesPage() {
           ==================================== */}
       <section className="ordenes-pagina-listado">
 
+        
+        {/* ====================================
+            ENCABEZADO DEL LISTADO GENERAL
+            ==================================== */}
         <div className="ordenes-pagina-listado-header">
+
           <div className="ordenes-pagina-listado-icono">
             <ListFilter size={23} strokeWidth={1.8} />
           </div>
@@ -185,7 +280,19 @@ function OrdenesPage() {
               Consulta y administración de servicios técnicos
             </p>
           </div>
+
+          {/* BOTON NUEVA ORDEN */}
+          <button
+            type="button"
+            className="ordenes-pagina-btn-nueva"
+            onClick={() => setModalAbierto(true)}
+          >
+            <Plus size={19} strokeWidth={2} />
+            <span>Nueva orden</span>
+          </button>
+
         </div>
+
 
         
         {/* ====================================
@@ -195,9 +302,61 @@ function OrdenesPage() {
           ordenes={ordenes}
           cargando={cargando}
           error={error}
+          onVerOrden={setOrdenSeleccionada}
+          onEditarOrden={setOrdenEnEdicion}
+          onEliminarOrden={setOrdenAEliminar}
         />
 
       </section>
+
+        {/* ====================================
+            FORMULARIO PARA REGISTRAR ORDEN
+            ==================================== */}
+        {modalAbierto && (
+          <OrdenFormulario
+            onCerrar={() => setModalAbierto(false)}
+            onGuardar={guardarNuevaOrden}
+          />
+        )}
+
+        
+        {/* ====================================
+            VISUALIZAR DETALLES DE UNA ORDEN
+            ==================================== */}
+        {ordenSeleccionada && (
+          <OrdenDetalle
+            orden={ordenSeleccionada}
+            onCerrar={() => setOrdenSeleccionada(null)}
+          />
+        )}
+
+        
+        {/* ====================================
+            EDITAR ORDEN DE SERVICIO
+            ==================================== */}
+        {ordenEnEdicion && (
+          <OrdenEditar
+            orden={ordenEnEdicion}
+            onCerrar={() => setOrdenEnEdicion(null)}
+            onGuardar={guardarEdicionOrden}
+          />
+        )}
+
+        
+        {/* ====================================
+            ELIMINAR ORDEN DE SERVICIO
+            ==================================== */}
+        {ordenAEliminar && (
+          <OrdenEliminar
+            orden={ordenAEliminar}
+            onCerrar={() => setOrdenAEliminar(null)}
+            onConfirmar={confirmarEliminarOrden}
+          />
+        )}
+
+
+
+
 
     </div>
   );
