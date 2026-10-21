@@ -1,0 +1,281 @@
+
+/* ==========================================
+   SERVITECH EC - ORDENES RECIENTES
+   ========================================== */
+
+.ordenes-recientes {
+  width: 100%;
+  padding: 22px;
+  background: #ffffff;
+  border: 1px solid #e1e8e9;
+  border-radius: 15px;
+  box-shadow: 0 6px 18px rgba(25, 48, 57, 0.05);
+}
+
+/* ==========================================
+   ENCABEZADO
+   ========================================== */
+
+.ordenes-recientes-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 22px;
+}
+
+.ordenes-recientes-titulo {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.ordenes-recientes-icono {
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+  background: #306a7e;
+  color: #ffffff;
+}
+
+.ordenes-recientes-titulo h2 {
+  margin: 0 0 5px;
+  color: #193039;
+  font-size: 19px;
+  font-weight: 700;
+}
+
+.ordenes-recientes-titulo p {
+  margin: 0;
+  color: #70818a;
+  font-size: 13px;
+}
+
+/* ==========================================
+   BUSCADOR Y FILTROS
+   ========================================== */
+
+.ordenes-recientes-filtros {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.ordenes-recientes-busqueda,
+.ordenes-recientes-select {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  height: 44px;
+  padding: 0 13px;
+  border: 1px solid #dce5e8;
+  border-radius: 9px;
+  background: #f8fafb;
+  color: #607681;
+}
+
+.ordenes-recientes-busqueda {
+  flex: 1;
+}
+
+.ordenes-recientes-busqueda input {
+  width: 100%;
+  min-width: 0;
+  border: none;
+  outline: none;
+  background: transparent;
+  color: #193039;
+  font-size: 13px;
+}
+
+.ordenes-recientes-select select {
+  border: none;
+  outline: none;
+  background: transparent;
+  color: #193039;
+  font-size: 13px;
+  cursor: pointer;
+}
+
+.ordenes-recientes-busqueda:focus-within,
+.ordenes-recientes-select:focus-within {
+  border-color: #306a7e;
+  outline: 2px solid rgba(48, 106, 126, 0.15);
+}
+
+/* ==========================================
+   TABLA
+   ========================================== */
+
+.ordenes-recientes-tabla-contenedor {
+  width: 100%;
+  overflow-x: auto;
+}
+
+.ordenes-recientes-tabla {
+  width: 100%;
+  min-width: 780px;
+  border-collapse: collapse;
+  text-align: left;
+}
+
+.ordenes-recientes-tabla thead {
+  background: #edf3f5;
+}
+
+.ordenes-recientes-tabla th {
+  padding: 15px 13px;
+  font-size: 12px;
+  font-weight: 600;
+  color: #344c55;
+}
+
+.ordenes-recientes-tabla td {
+  padding: 16px 13px;
+  font-size: 13px;
+  color: #344c55;
+  border-bottom: 1px solid #edf0f1;
+}
+
+.ordenes-recientes-tabla tbody tr:hover {
+  background: #f8fafb;
+}
+
+.ordenes-cliente {
+  font-weight: 600;
+}
+
+.ordenes-problema {
+  max-width: 220px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.ordenes-recientes-tabla .ordenes-recientes-vacio {
+  text-align: center;
+  padding: 35px;
+  color: #70818a;
+}
+
+/* ==========================================
+   ETIQUETAS DE ESTADO
+   ========================================== */
+
+.ordenes-estado {
+  display: inline-block;
+  white-space: nowrap;
+  padding: 7px 11px;
+  border-radius: 7px;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.ordenes-estado.pendiente {
+  background: #eee6d6;
+  color: #756028;
+}
+
+.ordenes-estado.reparacion {
+  background: #dcebd8;
+  color: #345d32;
+}
+
+.ordenes-estado.finalizada {
+  background: #deecf0;
+  color: #265b6d;
+}
+
+.ordenes-estado.desconocido {
+  background: #ececec;
+  color: #555555;
+}
+
+/* ==========================================
+   PIE DE TABLA
+   ========================================== */
+
+.ordenes-recientes-footer {
+  padding-top: 19px;
+  color: #70818a;
+  font-size: 12px;
+}
+
+/* ==========================================
+   RESPONSIVE
+   ========================================== */
+
+@media (max-width: 700px) {
+  .ordenes-recientes {
+    padding: 16px;
+  }
+
+  .ordenes-recientes-filtros {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .ordenes-recientes-busqueda,
+  .ordenes-recientes-select {
+    min-height: 44px;
+  }
+
+  .ordenes-recientes-titulo h2 {
+    font-size: 16px;
+  }
+}
+
+
+/* ==========================================
+   BOTON NUEVA ORDEN
+   ========================================== */
+
+.ordenes-recientes-btn-nueva {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  flex-shrink: 0;
+
+  padding: 12px 18px;
+  border: 1px solid #265255;
+  border-radius: 9px;
+
+  background: #265255;
+  color: #ffffff;
+
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+
+  transition:
+    background 0.2s ease,
+    transform 0.2s ease;
+}
+
+.ordenes-recientes-btn-nueva:hover {
+  background: #306a7e;
+  transform: translateY(-1px);
+}
+
+.ordenes-recientes-btn-nueva:focus-visible {
+  outline: 2px solid #306a7e;
+  outline-offset: 3px;
+}
+
+/* RESPONSIVE DEL BOTON */
+
+@media (max-width: 700px) {
+  .ordenes-recientes-header {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 16px;
+  }
+
+  .ordenes-recientes-btn-nueva {
+    width: 100%;
+  }
+}

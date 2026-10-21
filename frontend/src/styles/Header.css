@@ -1,0 +1,73 @@
+
+/* ==========================================
+   SERVITECH EC - HEADER PRINCIPAL
+   ========================================== */
+
+.header {
+  height: 86px;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  padding: 0 36px;
+  background: #ffffff;
+  border-bottom: 1px solid #e1e8e9;
+}
+
+/* INFORMACION */
+
+.header-informacion {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.header-etiqueta {
+  color: #306a7e;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+}
+
+.header-seccion {
+  color: #193039;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+/* FECHA */
+
+.header-fecha {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  padding: 12px 16px;
+  border: 1px solid #e1e8e9;
+  border-radius: 10px;
+  background: #f8fafb;
+  color: #526872;
+  font-size: 13px;
+  text-transform: capitalize;
+}
+
+.header-fecha svg {
+  color: #306a7e;
+  flex-shrink: 0;
+}
+
+/* RESPONSIVE */
+
+@media (max-width: 700px) {
+  .header {
+    height: auto;
+    min-height: 76px;
+    padding: 16px;
+    flex-wrap: wrap;
+  }
+
+  .header-fecha {
+    padding: 8px 10px;
+    font-size: 11px;
+  }
+}

@@ -1,0 +1,128 @@
+
+# ==========================================
+# SERVITECH EC - GITIGNORE
+# ==========================================
+# Backend: Java + Spring Boot + Maven
+# Frontend: React + Vite
+# Base de datos: PostgreSQL
+# ==========================================
+
+
+# ==========================================
+# 1. JAVA / SPRING BOOT / MAVEN
+# ==========================================
+
+# Archivos compilados
+**/target/
+*.class
+
+# Archivos temporales de Java
+hs_err_pid*
+replay_pid*
+
+
+# ==========================================
+# 2. REACT / VITE / NODE.JS
+# ==========================================
+
+# Dependencias de Node
+**/node_modules/
+
+# Archivos generados al compilar
+**/dist/
+
+# Cache de herramientas
+**/.vite/
+**/.cache/
+
+# Archivos de registro
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+
+# ==========================================
+# 3. VISUAL STUDIO CODE / IDE
+# ==========================================
+
+.vscode/
+.idea/
+*.iml
+
+# Eclipse / STS
+.classpath
+.project
+.settings/
+.factorypath
+
+
+# ==========================================
+# 4. VARIABLES Y ARCHIVOS SENSIBLES
+# ==========================================
+
+# Variables de entorno
+.env
+.env.*
+!.env.example
+!.env.*.example
+
+# Configuraciones privadas
+**/application-local.properties
+**/application-secrets.properties
+
+# Certificados y claves privadas
+*.pem
+*.p12
+*.pfx
+
+# Credenciales locales
+.pgpass
+
+
+# ==========================================
+# 5. BASES DE DATOS Y RESPALDOS
+# ==========================================
+
+*.backup
+*.dump
+*.sql.gz
+
+
+# ==========================================
+# 6. ARCHIVOS TEMPORALES
+# ==========================================
+
+*.log
+*.tmp
+*.temp
+*.bak
+
+# Archivos del sistema operativo
+.DS_Store
+Thumbs.db
+desktop.ini
+
+
+# ==========================================
+# 7. ARCHIVOS COMPRIMIDOS
+# ==========================================
+
+*.zip
+*.rar
+*.7z
+
+
+# ==========================================
+# 8. ARCHIVOS QUE SI DEBEMOS CONSERVAR
+# ==========================================
+
+# No ignorar README.md
+# No ignorar package.json
+# No ignorar package-lock.json
+# No ignorar pom.xml
+# No ignorar mvnw ni mvnw.cmd
+# No ignorar .mvn/wrapper/
+# No ignorar codigo fuente
+# No ignorar application.properties
+# cuando no contiene credenciales reales

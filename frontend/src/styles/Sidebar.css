@@ -1,0 +1,140 @@
+
+/* ==========================================
+   SERVITECH EC - SIDEBAR
+   ========================================== */
+
+.sidebar {
+  width: 260px;
+  min-height: 100vh;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  padding: 28px 16px;
+  box-sizing: border-box;
+  color: #ffffff;
+  background: linear-gradient(
+    160deg,
+    #265255 0%,
+    #193c40 100%
+  );
+}
+
+/* LOGOTIPO */
+
+.sidebar-marca {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 4px 10px;
+  margin-bottom: 45px;
+}
+
+.sidebar-logo {
+  color: #a7c6cd;
+  display: flex;
+  align-items: center;
+}
+
+.sidebar-marca-texto h2 {
+  margin: 0;
+  color: #ffffff;
+  font-size: 21px;
+  font-weight: 700;
+}
+
+.sidebar-marca-texto p {
+  margin: 5px 0 0;
+  font-size: 12px;
+  color: #b5cdce;
+}
+
+/* NAVEGACION */
+
+.sidebar-navegacion {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.sidebar-seccion {
+  padding: 0 14px;
+  margin-bottom: 10px;
+  color: #a7c6cd;
+  font-size: 11px;
+  letter-spacing: 1.5px;
+}
+
+.sidebar-opcion {
+  display: flex;
+  align-items: center;
+  gap: 13px;
+  width: 100%;
+  padding: 15px 16px;
+  background: transparent;
+  border: none;
+  border-radius: 10px;
+  color: #e4eeee;
+  font-size: 14px;
+  text-align: left;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.sidebar-opcion:hover {
+  background: rgba(255, 255, 255, 0.09);
+}
+
+.sidebar-opcion.activo {
+  background: #306a7e;
+  color: #ffffff;
+}
+
+.sidebar-opcion:focus-visible {
+  outline: 2px solid #a7c6cd;
+  outline-offset: 2px;
+}
+
+/* PIE DEL MENU */
+
+.sidebar-pie {
+  margin-top: auto;
+  padding: 18px 12px 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.sidebar-pie p {
+  margin: 0 0 5px;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.sidebar-pie span {
+  color: #b5cdce;
+  font-size: 12px;
+}
+
+/* RESPONSIVE */
+
+@media (max-width: 700px) {
+  .sidebar {
+    width: 72px;
+    padding: 22px 10px;
+  }
+
+  .sidebar-marca {
+    justify-content: center;
+    padding: 0;
+  }
+
+  .sidebar-marca-texto,
+  .sidebar-seccion,
+  .sidebar-opcion span,
+  .sidebar-pie {
+    display: none;
+  }
+
+  .sidebar-opcion {
+    justify-content: center;
+    padding: 14px;
+  }
+}

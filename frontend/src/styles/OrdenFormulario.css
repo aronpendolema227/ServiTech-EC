@@ -1,0 +1,252 @@
+
+/* ==========================================
+   SERVITECH EC - FORMULARIO DE ORDENES
+   ========================================== */
+
+/* FONDO DEL MODAL */
+
+.orden-modal-fondo {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  background: rgba(13, 35, 39, 0.60);
+}
+
+/* CONTENEDOR */
+
+.orden-modal {
+  width: 100%;
+  max-width: 650px;
+  max-height: 90vh;
+  overflow-y: auto;
+  border-radius: 16px;
+  background: #ffffff;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.20);
+}
+
+/* ==========================================
+   ENCABEZADO
+   ========================================== */
+
+.orden-modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 15px;
+  padding: 24px 28px;
+  border-bottom: 1px solid #e6ecee;
+}
+
+.orden-modal-titulo {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.orden-modal-icono {
+  width: 48px;
+  height: 48px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 11px;
+  color: #ffffff;
+  background: #306a7e;
+}
+
+.orden-modal-titulo h2 {
+  margin: 0 0 5px;
+  font-size: 20px;
+  color: #193039;
+}
+
+.orden-modal-titulo p {
+  margin: 0;
+  font-size: 13px;
+  color: #70818a;
+}
+
+.orden-modal-cerrar {
+  display: flex;
+  padding: 7px;
+  border: none;
+  border-radius: 8px;
+  color: #607681;
+  background: transparent;
+  cursor: pointer;
+}
+
+.orden-modal-cerrar:hover {
+  background: #edf3f5;
+}
+
+/* ==========================================
+   CAMPOS DEL FORMULARIO
+   ========================================== */
+
+.orden-modal-body {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 26px 28px;
+}
+
+.orden-form-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 19px;
+}
+
+.orden-form-campo {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.orden-form-campo label {
+  font-size: 13px;
+  font-weight: 600;
+  color: #344c55;
+}
+
+.orden-form-campo input,
+.orden-form-campo textarea {
+  width: 100%;
+  padding: 12px 14px;
+  border: 1px solid #dce5e8;
+  border-radius: 9px;
+  outline: none;
+  color: #193039;
+  background: #f8fafb;
+  font-size: 13px;
+  transition: border-color 0.2s;
+}
+
+.orden-form-campo textarea {
+  resize: vertical;
+  min-height: 105px;
+}
+
+.orden-form-campo input:focus,
+.orden-form-campo textarea:focus {
+  border-color: #306a7e;
+  box-shadow: 0 0 0 3px rgba(48, 106, 126, 0.12);
+}
+
+.orden-form-campo input:disabled,
+.orden-form-campo textarea:disabled {
+  opacity: 0.7;
+}
+
+/* ==========================================
+   INFORMACION Y ERRORES
+   ========================================== */
+
+.orden-form-info {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 14px;
+  border-radius: 9px;
+  background: #eaf2f4;
+  color: #306a7e;
+}
+
+.orden-form-info svg {
+  flex-shrink: 0;
+}
+
+.orden-form-info p {
+  margin: 0;
+  font-size: 12px;
+  line-height: 1.6;
+}
+
+.orden-form-error {
+  padding: 12px 15px;
+  border: 1px solid #f1c8c4;
+  border-radius: 8px;
+  background: #fff1f0;
+  color: #9d322b;
+  font-size: 13px;
+}
+
+/* ==========================================
+   BOTONES
+   ========================================== */
+
+.orden-modal-footer {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+  padding: 20px 28px;
+  border-top: 1px solid #e6ecee;
+}
+
+.orden-btn-cancelar,
+.orden-btn-guardar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  padding: 12px 19px;
+  border-radius: 9px;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.orden-btn-cancelar {
+  color: #526872;
+  background: #ffffff;
+  border: 1px solid #dce5e8;
+}
+
+.orden-btn-guardar {
+  color: #ffffff;
+  background: #265255;
+  border: 1px solid #265255;
+}
+
+.orden-btn-guardar:hover:not(:disabled) {
+  background: #306a7e;
+}
+
+.orden-modal button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.orden-modal button:focus-visible {
+  outline: 2px solid #306a7e;
+  outline-offset: 2px;
+}
+
+/* ==========================================
+   RESPONSIVE
+   ========================================== */
+
+@media (max-width: 600px) {
+  .orden-modal-fondo {
+    padding: 10px;
+  }
+
+  .orden-modal-header,
+  .orden-modal-body,
+  .orden-modal-footer {
+    padding: 18px;
+  }
+
+  .orden-form-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .orden-modal-titulo h2 {
+    font-size: 17px;
+  }
+}

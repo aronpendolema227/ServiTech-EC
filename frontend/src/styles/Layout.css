@@ -1,0 +1,73 @@
+
+/* ==========================================
+    SERVITECH EC - ESTRUCTURA GENERAL
+   ========================================== */
+
+.app-contenedor {
+  display: flex;
+  min-height: 100vh;
+}
+
+
+/* ==========================================
+    AREA PRINCIPAL DE LA APLICACION
+   ========================================== */
+
+.app-area {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  min-width: 0;
+}
+
+
+.app-contenido {
+  flex: 1;
+  min-width: 0;
+  padding: 36px;
+}
+
+.pagina-encabezado {
+  margin-bottom: 30px;
+}
+
+.pagina-encabezado h1 {
+  font-size: 30px;
+  font-weight: 700;
+  margin: 0 0 8px;
+}
+
+.pagina-encabezado p {
+  color: #647780;
+  font-size: 15px;
+  margin: 0;
+}
+
+/* CONTENIDO TEMPORAL */
+
+.contenido-provisional {
+  background: #ffffff;
+  border: 1px solid #e1e8e9;
+  border-radius: 15px;
+  padding: 30px;
+  min-height: 180px;
+}
+
+.contenido-provisional h2 {
+  margin: 0 0 10px;
+  font-size: 20px;
+}
+
+.contenido-provisional p {
+  color: #647780;
+}
+
+@media (max-width: 700px) {
+  .app-contenido {
+    padding: 24px 16px;
+  }
+
+  .pagina-encabezado h1 {
+    font-size: 25px;
+  }
+}
