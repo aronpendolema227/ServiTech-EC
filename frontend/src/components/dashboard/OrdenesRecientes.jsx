@@ -6,6 +6,7 @@ import {
   Search,
   Filter,
   Plus,
+  Eye,
 } from "lucide-react";
 
 import "../../styles/OrdenesRecientes.css";
@@ -20,6 +21,7 @@ function OrdenesRecientes({
   cargando = false,
   error = "",
   onNuevaOrden,
+  onVerOrden,
 }) {
 
 
@@ -167,7 +169,7 @@ function OrdenesRecientes({
               <th>Equipo</th>
               <th>Problema</th>
               <th>Estado</th>
-              <th>Fecha</th>
+              <th>Acciones</th>
             </tr>
           </thead>
 
@@ -222,6 +224,25 @@ function OrdenesRecientes({
                   </td>
 
                   <td>{formatearFecha(orden.fechaIngreso)}</td>
+
+                  
+                  {/* ===================================
+                      ACCIONES DE LA ORDEN
+                      =================================== */}
+                  <td>
+                    <div className="ordenes-recientes-acciones">
+                      <button
+                        type="button"
+                        className="ordenes-btn-ver"
+                        onClick={() => onVerOrden(orden)}
+                        aria-label={`Visualizar orden ${orden.id}`}
+                        title="Visualizar orden"
+                      >
+                        <Eye size={19} strokeWidth={1.8} />
+                      </button>
+                    </div>
+                  </td>
+
 
                 </tr>
               ))

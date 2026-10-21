@@ -279,3 +279,41 @@
     width: 100%;
   }
 }
+
+
+/* ==========================================
+   ACCIONES DE LAS ORDENES
+   ========================================== */
+
+.ordenes-recientes-acciones {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.ordenes-btn-ver {
+  width: 36px;
+  height: 36px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border: none;
+  border-radius: 8px;
+  background: transparent;
+  color: #306a7e;
+  cursor: pointer;
+
+  transition: background 0.2s ease;
+}
+
+.ordenes-btn-ver:hover {
+  background: #eaf2f4;
+}
+
+.ordenes-btn-ver:focus-visible {
+  outline: 2px solid #306a7e;
+  outline-offset: 2px;
+}

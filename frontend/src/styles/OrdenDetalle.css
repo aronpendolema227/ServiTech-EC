@@ -1,0 +1,246 @@
+
+/* ==========================================
+   SERVITECH EC - DETALLE DE ORDEN
+   ========================================== */
+
+/* FONDO DEL MODAL */
+
+.detalle-modal-fondo {
+  position: fixed;
+  inset: 0;
+  z-index: 1100;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 20px;
+  background: rgba(13, 35, 39, 0.60);
+}
+
+/* CONTENEDOR */
+
+.detalle-modal {
+  width: 100%;
+  max-width: 650px;
+  max-height: 90vh;
+  overflow-y: auto;
+
+  background: #ffffff;
+  border-radius: 16px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.20);
+}
+
+/* ==========================================
+   ENCABEZADO
+   ========================================== */
+
+.detalle-modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+
+  padding: 24px 28px;
+  border-bottom: 1px solid #e6ecee;
+}
+
+.detalle-modal-titulo {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.detalle-modal-icono {
+  width: 48px;
+  height: 48px;
+  flex-shrink: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  color: #ffffff;
+  background: #306a7e;
+  border-radius: 11px;
+}
+
+.detalle-modal-titulo h2 {
+  margin: 0 0 5px;
+  font-size: 20px;
+  color: #193039;
+}
+
+.detalle-modal-titulo p {
+  margin: 0;
+  font-size: 13px;
+  color: #70818a;
+}
+
+.detalle-modal-cerrar {
+  display: flex;
+  padding: 8px;
+  border: none;
+  border-radius: 8px;
+  background: transparent;
+  color: #607681;
+  cursor: pointer;
+}
+
+.detalle-modal-cerrar:hover {
+  background: #edf3f5;
+}
+
+/* ==========================================
+   DATOS DE LA ORDEN
+   ========================================== */
+
+.detalle-modal-body {
+  display: flex;
+  flex-direction: column;
+  gap: 26px;
+  padding: 28px;
+}
+
+.detalle-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 25px 20px;
+}
+
+.detalle-campo {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  min-width: 0;
+}
+
+.detalle-campo > span {
+  color: #70818a;
+  font-size: 12px;
+}
+
+.detalle-campo strong {
+  color: #193039;
+  font-size: 14px;
+  font-weight: 600;
+  overflow-wrap: anywhere;
+}
+
+/* ==========================================
+   ESTADOS
+   ========================================== */
+
+.detalle-estado {
+  display: inline-block;
+  padding: 8px 12px;
+  border-radius: 8px;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.detalle-estado.pendiente {
+  background: #eee6d6;
+  color: #756028;
+}
+
+.detalle-estado.reparacion {
+  background: #dcebd8;
+  color: #345d32;
+}
+
+.detalle-estado.finalizada {
+  background: #deecf0;
+  color: #265b6d;
+}
+
+.detalle-estado.desconocido {
+  background: #ececec;
+  color: #555555;
+}
+
+/* ==========================================
+   DESCRIPCION DEL PROBLEMA
+   ========================================== */
+
+.detalle-problema {
+  border-top: 1px solid #e6ecee;
+  padding-top: 22px;
+}
+
+.detalle-problema h3 {
+  margin: 0 0 12px;
+  font-size: 14px;
+  color: #193039;
+}
+
+.detalle-problema p {
+  margin: 0;
+  padding: 16px;
+
+  color: #526872;
+  background: #f3f6f7;
+  border-radius: 10px;
+
+  font-size: 13px;
+  line-height: 1.7;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+
+/* ==========================================
+   PIE DEL MODAL
+   ========================================== */
+
+.detalle-modal-footer {
+  display: flex;
+  justify-content: flex-end;
+  padding: 20px 28px;
+  border-top: 1px solid #e6ecee;
+}
+
+.detalle-btn-cerrar {
+  padding: 12px 25px;
+  border: none;
+  border-radius: 9px;
+
+  color: #ffffff;
+  background: #265255;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.detalle-btn-cerrar:hover {
+  background: #306a7e;
+}
+
+.detalle-modal button:focus-visible {
+  outline: 2px solid #306a7e;
+  outline-offset: 3px;
+}
+
+/* ==========================================
+   RESPONSIVE
+   ========================================== */
+
+@media (max-width: 600px) {
+  .detalle-modal-fondo {
+    padding: 10px;
+  }
+
+  .detalle-modal-header,
+  .detalle-modal-body,
+  .detalle-modal-footer {
+    padding: 18px;
+  }
+
+  .detalle-grid {
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+
+  .detalle-modal-titulo h2 {
+    font-size: 17px;
+  }
+}

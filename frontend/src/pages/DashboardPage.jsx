@@ -2,6 +2,9 @@
 
 import OrdenesRecientes from "../components/dashboard/OrdenesRecientes";
 
+import OrdenDetalle from "../components/ordenes/OrdenDetalle";
+
+
 
 import { useEffect, useState } from "react";
 
@@ -41,6 +44,11 @@ function DashboardPage() {
   // CONTROL DEL FORMULARIO MODAL
   // ========================================
   const [modalAbierto, setModalAbierto] = useState(false);
+  
+  // ========================================
+  // CONTROL DE VISUALIZACION DE ORDENES
+  // ========================================
+  const [ordenSeleccionada, setOrdenSeleccionada] = useState(null);
 
 
   // ========================================
@@ -221,6 +229,7 @@ function DashboardPage() {
         cargando={cargando}
         error={error}
         onNuevaOrden={() => setModalAbierto(true)}
+        onVerOrden={setOrdenSeleccionada}
       />
 
       {/* ===================================
@@ -232,6 +241,18 @@ function DashboardPage() {
           onGuardar={guardarNuevaOrden}
         />
       )}
+
+      
+      {/* ===================================
+          VISUALIZAR DETALLES DE UNA ORDEN
+          =================================== */}
+      {ordenSeleccionada && (
+        <OrdenDetalle
+          orden={ordenSeleccionada}
+          onCerrar={() => setOrdenSeleccionada(null)}
+        />
+      )}
+
 
 
 
