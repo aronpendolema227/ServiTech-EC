@@ -12,6 +12,9 @@ import Header from "./components/Header";
 // ==========================================
 import DashboardPage from "./pages/DashboardPage";
 
+import OrdenesPage from "./pages/OrdenesPage";
+
+
 // ==========================================
 // ESTILOS
 // ==========================================
@@ -78,14 +81,9 @@ function App() {
 
           ) : (
 
-            // PAGINA DE ORDENES - PROVISIONAL
-            <section className="contenido-provisional">
-              <h2>Gestión de órdenes</h2>
-              <p>
-                Aquí construiremos la administración
-                de órdenes de servicio.
-              </p>
-            </section>
+            
+            <OrdenesPage />
+
 
           )}
 

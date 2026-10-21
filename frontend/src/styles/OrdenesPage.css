@@ -1,0 +1,222 @@
+
+/* ==========================================
+   SERVITECH EC - PAGINA DE ORDENES
+   ========================================== */
+
+.ordenes-pagina {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+/* ==========================================
+   TARJETAS DE RESUMEN
+   ========================================== */
+
+.ordenes-pagina-resumen {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.ordenes-pagina-tarjeta {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 148px;
+  min-width: 0;
+  padding: 21px;
+
+  background: #ffffff;
+  border: 1px solid #e1e8e9;
+  border-radius: 13px;
+
+  box-shadow: 0 5px 16px rgba(25, 48, 57, 0.04);
+}
+
+/* PARTE SUPERIOR */
+
+.ordenes-pagina-tarjeta-superior {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.ordenes-pagina-tarjeta-superior > span {
+  color: #526872;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.ordenes-pagina-tarjeta-icono {
+  width: 40px;
+  height: 40px;
+  flex-shrink: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 10px;
+}
+
+/* VALORES */
+
+.ordenes-pagina-tarjeta-info h2 {
+  margin: 0 0 5px;
+  font-size: 30px;
+  font-weight: 700;
+  color: #193039;
+}
+
+.ordenes-pagina-tarjeta-info p {
+  margin: 0;
+  color: #70818a;
+  font-size: 12px;
+}
+
+/* COLORES DE INDICADORES */
+
+.ordenes-pagina-tarjeta.total .ordenes-pagina-tarjeta-icono {
+  background: #e5f0f3;
+  color: #306a7e;
+}
+
+.ordenes-pagina-tarjeta.pendientes .ordenes-pagina-tarjeta-icono {
+  background: #e8f0ee;
+  color: #265255;
+}
+
+.ordenes-pagina-tarjeta.reparacion .ordenes-pagina-tarjeta-icono {
+  background: #eef0e4;
+  color: #4b5320;
+}
+
+.ordenes-pagina-tarjeta.finalizadas .ordenes-pagina-tarjeta-icono {
+  background: #eeeae8;
+  color: #70645f;
+}
+
+/* ==========================================
+   CONTENEDOR DEL LISTADO
+   ========================================== */
+
+.ordenes-pagina-listado {
+  background: #ffffff;
+  border: 1px solid #e1e8e9;
+  border-radius: 15px;
+  padding: 24px;
+
+  box-shadow: 0 5px 18px rgba(25, 48, 57, 0.04);
+}
+
+.ordenes-pagina-listado-header {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 24px;
+}
+
+.ordenes-pagina-listado-icono {
+  width: 45px;
+  height: 45px;
+  flex-shrink: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 10px;
+  background: #306a7e;
+  color: #ffffff;
+}
+
+.ordenes-pagina-listado-header h2 {
+  margin: 0 0 5px;
+  color: #193039;
+  font-size: 19px;
+}
+
+.ordenes-pagina-listado-header p {
+  margin: 0;
+  color: #70818a;
+  font-size: 13px;
+}
+
+/* ==========================================
+   CONTENIDO TEMPORAL
+   ========================================== */
+
+.ordenes-pagina-listado-contenido {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+
+  min-height: 245px;
+  padding: 25px;
+  border: 1px dashed #dce5e8;
+  border-radius: 11px;
+
+  color: #306a7e;
+  text-align: center;
+  background: #f8fafb;
+}
+
+.ordenes-pagina-listado-contenido h3 {
+  margin: 0;
+  color: #193039;
+  font-size: 17px;
+}
+
+.ordenes-pagina-listado-contenido p {
+  max-width: 380px;
+  margin: 0;
+  color: #70818a;
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+.ordenes-pagina-listado-contenido span {
+  color: #265255;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+/* ERROR */
+
+.ordenes-pagina-error {
+  padding: 14px 18px;
+  background: #fff1f0;
+  border: 1px solid #f1c8c4;
+  border-radius: 10px;
+  color: #9d322b;
+  font-size: 14px;
+}
+
+/* ==========================================
+   RESPONSIVE
+   ========================================== */
+
+@media (max-width: 1200px) {
+  .ordenes-pagina-resumen {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 600px) {
+  .ordenes-pagina-resumen {
+    grid-template-columns: 1fr;
+  }
+
+  .ordenes-pagina-listado {
+    padding: 16px;
+  }
+
+  .ordenes-pagina-listado-header h2 {
+    font-size: 16px;
+  }
+}

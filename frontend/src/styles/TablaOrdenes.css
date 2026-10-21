@@ -1,0 +1,372 @@
+
+/* ==========================================
+   SERVITECH EC - TABLA GENERAL DE ORDENES
+   ========================================== */
+
+.tabla-ordenes {
+  width: 100%;
+}
+
+/* ==========================================
+   CONTENEDOR
+   ========================================== */
+
+.tabla-ordenes-contenedor {
+  width: 100%;
+  overflow-x: auto;
+}
+
+/* ==========================================
+   TABLA
+   ========================================== */
+
+.tabla-ordenes table {
+  width: 100%;
+  min-width: 950px;
+  border-collapse: collapse;
+  text-align: left;
+}
+
+/* ENCABEZADOS */
+
+.tabla-ordenes thead {
+  background: #edf3f5;
+}
+
+.tabla-ordenes th {
+  padding: 15px 14px;
+  color: #344c55;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+/* CELDAS */
+
+.tabla-ordenes td {
+  padding: 16px 14px;
+  border-bottom: 1px solid #edf0f1;
+
+  color: #344c55;
+  font-size: 13px;
+  vertical-align: middle;
+}
+
+.tabla-ordenes tbody tr:hover {
+  background: #f8fafb;
+}
+
+.tabla-ordenes-id {
+  color: #306a7e;
+  font-weight: 600;
+}
+
+.tabla-ordenes-cliente {
+  font-weight: 600;
+}
+
+/* ==========================================
+   MARCA Y MODELO
+   ========================================== */
+
+.tabla-ordenes-equipo {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.tabla-ordenes-equipo strong {
+  color: #344c55;
+  font-weight: 600;
+}
+
+.tabla-ordenes-equipo span {
+  color: #70818a;
+  font-size: 12px;
+}
+
+/* ==========================================
+   DESCRIPCION DEL PROBLEMA
+   ========================================== */
+
+.tabla-ordenes-problema {
+  max-width: 250px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+/* ==========================================
+   ETIQUETAS DE ESTADO
+   ========================================== */
+
+.tabla-ordenes-estado {
+  display: inline-block;
+  padding: 7px 11px;
+  border-radius: 7px;
+
+  font-size: 12px;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.tabla-ordenes-estado.pendiente {
+  color: #756028;
+  background: #eee6d6;
+}
+
+.tabla-ordenes-estado.reparacion {
+  color: #345d32;
+  background: #dcebd8;
+}
+
+.tabla-ordenes-estado.finalizada {
+  color: #265b6d;
+  background: #deecf0;
+}
+
+.tabla-ordenes-estado.desconocido {
+  color: #555555;
+  background: #ececec;
+}
+
+/* ==========================================
+   TABLA VACIA
+   ========================================== */
+
+.tabla-ordenes .tabla-ordenes-vacio {
+  padding: 40px 20px;
+  color: #70818a;
+  text-align: center;
+}
+
+
+/* ==========================================
+   PIE DE TABLA
+   ========================================== */
+
+.tabla-ordenes-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 16px;
+
+  padding-top: 20px;
+
+  color: #70818a;
+  font-size: 12px;
+}
+
+
+/* ==========================================
+   RESPONSIVE
+   ========================================== */
+
+@media (max-width: 700px) {
+  .tabla-ordenes th,
+  .tabla-ordenes td {
+    padding: 13px 10px;
+  }
+}
+
+
+/* ==========================================
+   SERVITECH EC - BUSCADOR Y FILTROS
+   ========================================== */
+
+.tabla-ordenes-filtros {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 22px;
+}
+
+/* ==========================================
+   BUSCADOR
+   ========================================== */
+
+.tabla-ordenes-busqueda {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex: 1;
+  min-width: 0;
+
+  height: 46px;
+  padding: 0 14px;
+
+  border: 1px solid #dce5e8;
+  border-radius: 9px;
+  background: #f8fafb;
+  color: #607681;
+}
+
+.tabla-ordenes-busqueda svg {
+  flex-shrink: 0;
+}
+
+.tabla-ordenes-busqueda input {
+  width: 100%;
+  min-width: 0;
+
+  border: none;
+  outline: none;
+  background: transparent;
+
+  color: #193039;
+  font-size: 13px;
+}
+
+.tabla-ordenes-busqueda input::placeholder {
+  color: #84949b;
+}
+
+/* ==========================================
+   FILTRO POR ESTADO
+   ========================================== */
+
+
+.tabla-ordenes-filtro-estado,
+.tabla-ordenes-filtro-orden {
+
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-shrink: 0;
+
+  height: 46px;
+  padding: 0 12px;
+
+  border: 1px solid #dce5e8;
+  border-radius: 9px;
+  background: #f8fafb;
+  color: #607681;
+}
+
+.tabla-ordenes-filtro-estado svg,
+.tabla-ordenes-filtro-orden svg {
+  flex-shrink: 0;
+}
+
+.tabla-ordenes-filtro-estado select,
+.tabla-ordenes-filtro-orden select {
+  border: none;
+  outline: none;
+
+  background: transparent;
+  color: #193039;
+
+  font-size: 13px;
+  cursor: pointer;
+}
+
+/* ==========================================
+   ESTADOS DE ENFOQUE
+   ========================================== */
+
+.tabla-ordenes-busqueda:focus-within,
+.tabla-ordenes-filtro-estado:focus-within,
+.tabla-ordenes-filtro-orden:focus-within {
+  border-color: #306a7e;
+  box-shadow: 0 0 0 3px rgba(48, 106, 126, 0.12);
+}
+
+/* ==========================================
+   RESPONSIVE DE FILTROS
+   ========================================== */
+
+@media (max-width: 700px) {
+  .tabla-ordenes-filtros {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 12px;
+  }
+
+  .tabla-ordenes-busqueda,
+  .tabla-ordenes-filtro-estado,
+  .tabla-ordenes-filtro-orden {
+    width: 100%;
+  }
+}
+
+
+/* ==========================================
+   SERVITECH EC - PAGINACION
+   ========================================== */
+
+.tabla-ordenes-paginacion {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+/* BOTONES DE PAGINACION */
+
+.tabla-ordenes-btn-pagina {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  min-width: 36px;
+  height: 36px;
+  padding: 0 8px;
+
+  border: 1px solid #dce5e8;
+  border-radius: 8px;
+
+  background: #ffffff;
+  color: #526872;
+
+  font-size: 13px;
+  font-weight: 600;
+
+  cursor: pointer;
+  transition:
+    background 0.2s ease,
+    color 0.2s ease;
+}
+
+/* HOVER */
+
+.tabla-ordenes-btn-pagina:hover:not(:disabled) {
+  background: #eaf2f4;
+  color: #265255;
+}
+
+/* PAGINA ACTIVA */
+
+.tabla-ordenes-btn-pagina.activa {
+  background: #265255;
+  border-color: #265255;
+  color: #ffffff;
+}
+
+/* BOTONES DESHABILITADOS */
+
+.tabla-ordenes-btn-pagina:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+/* ACCESIBILIDAD */
+
+.tabla-ordenes-btn-pagina:focus-visible {
+  outline: 2px solid #306a7e;
+  outline-offset: 2px;
+}
+
+/* ==========================================
+   RESPONSIVE
+   ========================================== */
+
+@media (max-width: 700px) {
+  .tabla-ordenes-footer {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .tabla-ordenes-paginacion {
+    justify-content: center;
+  }
+}
