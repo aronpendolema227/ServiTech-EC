@@ -7,6 +7,7 @@ import {
   Filter,
   Plus,
   Eye,
+  Pencil,
 } from "lucide-react";
 
 import "../../styles/OrdenesRecientes.css";
@@ -22,6 +23,7 @@ function OrdenesRecientes({
   error = "",
   onNuevaOrden,
   onVerOrden,
+  onEditarOrden,
 }) {
 
 
@@ -169,6 +171,7 @@ function OrdenesRecientes({
               <th>Equipo</th>
               <th>Problema</th>
               <th>Estado</th>
+              <th>Fecha</th>
               <th>Acciones</th>
             </tr>
           </thead>
@@ -177,7 +180,7 @@ function OrdenesRecientes({
 
             {cargando || error ? (
               <tr>
-                <td colSpan="6" className="ordenes-recientes-vacio">
+                <td colSpan="7" className="ordenes-recientes-vacio">
                   {cargando
                     ? "Cargando órdenes..."
                     : "No se pudieron consultar las órdenes."}
@@ -240,6 +243,18 @@ function OrdenesRecientes({
                       >
                         <Eye size={19} strokeWidth={1.8} />
                       </button>
+                      
+                      {/* EDITAR ORDEN */}
+                      <button
+                        type="button"
+                        className="ordenes-btn-editar"
+                        onClick={() => onEditarOrden(orden)}
+                        aria-label={`Editar orden ${orden.id}`}
+                        title="Editar orden"
+                      >
+                        <Pencil size={19} strokeWidth={1.8} />
+                      </button>
+
                     </div>
                   </td>
 

@@ -317,3 +317,36 @@
   outline: 2px solid #306a7e;
   outline-offset: 2px;
 }
+
+
+
+/* ==========================================
+   SERVITECH EC - BOTON EDITAR ORDEN
+   ========================================== */
+
+.ordenes-btn-editar {
+  width: 36px;
+  height: 36px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border: none;
+  border-radius: 8px;
+
+  background: transparent;
+  color: #4b5320;
+
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.ordenes-btn-editar:hover {
+  background: #eef0e4;
+}
+
+.ordenes-btn-editar:focus-visible {
+  outline: 2px solid #4b5320;
+  outline-offset: 2px;
+}

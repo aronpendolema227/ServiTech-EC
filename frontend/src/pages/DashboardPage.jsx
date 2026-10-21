@@ -1,10 +1,7 @@
 
-
 import OrdenesRecientes from "../components/dashboard/OrdenesRecientes";
 
 import OrdenDetalle from "../components/ordenes/OrdenDetalle";
-
-
 
 import { useEffect, useState } from "react";
 
@@ -15,14 +12,15 @@ import {
   CircleCheck,
 } from "lucide-react";
 
-
 import {
   listarOrdenes,
   crearOrden,
+  actualizarOrden,
 } from "../services/ordenServicioService";
 
 import OrdenFormulario from "../components/ordenes/OrdenFormulario";
 
+import OrdenEditar from "../components/ordenes/OrdenEditar";
 
 import "../styles/Dashboard.css";
 
@@ -49,6 +47,13 @@ function DashboardPage() {
   // CONTROL DE VISUALIZACION DE ORDENES
   // ========================================
   const [ordenSeleccionada, setOrdenSeleccionada] = useState(null);
+
+  
+  // ========================================
+  // CONTROL DE EDICION DE ORDENES
+  // ========================================
+  const [ordenEnEdicion, setOrdenEnEdicion] = useState(null);
+
 
 
   // ========================================
@@ -107,6 +112,28 @@ function DashboardPage() {
     ]);
 
     // Limpiar posibles errores anteriores
+    setError("");
+  };
+
+  
+  // ========================================
+  // UPDATE - ACTUALIZAR ORDEN DE SERVICIO
+  // ========================================
+  const guardarEdicionOrden = async (id, datos) => {
+
+    // 1. Actualizar mediante nuestra API REST
+    const ordenActualizada = await actualizarOrden(id, datos);
+
+    // 2. Actualizar los datos locales del Dashboard
+    setOrdenes((anteriores) =>
+      anteriores.map((orden) =>
+        orden.id === id
+          ? ordenActualizada
+          : orden
+      )
+    );
+
+    // 3. Limpiar posibles errores anteriores
     setError("");
   };
 
@@ -218,9 +245,7 @@ function DashboardPage() {
           );
         })}
       </section>
-
-      
-      
+  
       {/* ===================================
           ORDENES DE SERVICIO RECIENTES
           =================================== */}
@@ -230,6 +255,7 @@ function DashboardPage() {
         error={error}
         onNuevaOrden={() => setModalAbierto(true)}
         onVerOrden={setOrdenSeleccionada}
+        onEditarOrden={setOrdenEnEdicion}
       />
 
       {/* ===================================
@@ -241,7 +267,6 @@ function DashboardPage() {
           onGuardar={guardarNuevaOrden}
         />
       )}
-
       
       {/* ===================================
           VISUALIZAR DETALLES DE UNA ORDEN
@@ -252,8 +277,17 @@ function DashboardPage() {
           onCerrar={() => setOrdenSeleccionada(null)}
         />
       )}
-
-
+      
+      {/* ===================================
+          EDITAR ORDEN DE SERVICIO
+          =================================== */}
+      {ordenEnEdicion && (
+        <OrdenEditar
+          orden={ordenEnEdicion}
+          onCerrar={() => setOrdenEnEdicion(null)}
+          onGuardar={guardarEdicionOrden}
+        />
+      )}
 
 
     </div>

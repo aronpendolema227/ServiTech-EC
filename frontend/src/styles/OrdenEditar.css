@@ -1,0 +1,57 @@
+
+/* ==========================================
+   SERVITECH EC - EDITAR ORDEN
+   ========================================== */
+
+/* ==========================================
+   SELECTOR DE ESTADO
+   ========================================== */
+
+.orden-editar-select {
+  width: 100%;
+  padding: 12px 14px;
+
+  border: 1px solid #dce5e8;
+  border-radius: 9px;
+  outline: none;
+
+  color: #193039;
+  background: #f8fafb;
+
+  font-size: 13px;
+  cursor: pointer;
+
+  transition:
+    border-color 0.2s,
+    box-shadow 0.2s;
+}
+
+.orden-editar-select:focus {
+  border-color: #306a7e;
+  box-shadow: 0 0 0 3px rgba(48, 106, 126, 0.12);
+}
+
+.orden-editar-select:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+/* ==========================================
+   FECHA ORIGINAL
+   ========================================== */
+
+.orden-editar-fecha input {
+  background: #edf3f5;
+  color: #526872;
+  cursor: default;
+}
+
+/* ==========================================
+   RESPONSIVE
+   ========================================== */
+
+@media (max-width: 600px) {
+  .orden-editar-select {
+    min-height: 44px;
+  }
+}
