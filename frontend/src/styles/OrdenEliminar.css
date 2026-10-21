@@ -1,0 +1,256 @@
+
+/* ==========================================
+   SERVITECH EC - ELIMINAR ORDEN
+   ========================================== */
+
+/* FONDO DEL MODAL */
+
+.eliminar-modal-fondo {
+  position: fixed;
+  inset: 0;
+  z-index: 1200;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 20px;
+  background: rgba(13, 35, 39, 0.60);
+}
+
+/* CONTENEDOR */
+
+.eliminar-modal {
+  width: 100%;
+  max-width: 520px;
+  max-height: 90vh;
+  overflow-y: auto;
+
+  background: #ffffff;
+  border-radius: 16px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.20);
+}
+
+/* ==========================================
+   ENCABEZADO
+   ========================================== */
+
+.eliminar-modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 15px;
+
+  padding: 24px;
+  border-bottom: 1px solid #e6ecee;
+}
+
+.eliminar-modal-titulo {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.eliminar-modal-icono {
+  width: 46px;
+  height: 46px;
+  flex-shrink: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: #f8e8e8;
+  color: #a53d3d;
+  border-radius: 11px;
+}
+
+.eliminar-modal-titulo h2 {
+  margin: 0 0 5px;
+  color: #193039;
+  font-size: 19px;
+}
+
+.eliminar-modal-titulo p {
+  margin: 0;
+  color: #70818a;
+  font-size: 12px;
+}
+
+.eliminar-modal-cerrar {
+  display: flex;
+  padding: 8px;
+
+  border: none;
+  border-radius: 8px;
+
+  background: transparent;
+  color: #607681;
+  cursor: pointer;
+}
+
+.eliminar-modal-cerrar:hover {
+  background: #edf3f5;
+}
+
+/* ==========================================
+   CUERPO
+   ========================================== */
+
+.eliminar-modal-body {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 24px;
+}
+
+.eliminar-modal-body > p {
+  margin: 0;
+  color: #344c55;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+/* INFORMACION */
+
+.eliminar-orden-info {
+  padding: 18px;
+  border-radius: 10px;
+  background: #f3f6f7;
+}
+
+.eliminar-orden-info > div {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 14px;
+  margin-bottom: 13px;
+}
+
+.eliminar-orden-info > div:last-child {
+  margin-bottom: 0;
+}
+
+.eliminar-orden-info span {
+  color: #70818a;
+  font-size: 13px;
+}
+
+.eliminar-orden-info strong {
+  color: #193039;
+  font-size: 13px;
+  text-align: right;
+  overflow-wrap: anywhere;
+}
+
+/* ==========================================
+   ADVERTENCIA
+   ========================================== */
+
+.eliminar-advertencia {
+  display: flex;
+  align-items: flex-start;
+  gap: 11px;
+
+  padding: 14px;
+  border-radius: 9px;
+
+  background: #fff3ed;
+  color: #9b4c32;
+}
+
+.eliminar-advertencia svg {
+  flex-shrink: 0;
+}
+
+.eliminar-advertencia p {
+  margin: 0;
+  font-size: 12px;
+  line-height: 1.6;
+}
+
+.eliminar-error {
+  padding: 12px;
+  border-radius: 8px;
+  background: #fff1f0;
+  color: #a53d3d;
+  font-size: 13px;
+}
+
+/* ==========================================
+   BOTONES
+   ========================================== */
+
+.eliminar-modal-footer {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+
+  padding: 20px 24px;
+  border-top: 1px solid #e6ecee;
+}
+
+.eliminar-btn-cancelar,
+.eliminar-btn-confirmar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+
+  padding: 12px 18px;
+  border-radius: 9px;
+
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.eliminar-btn-cancelar {
+  border: 1px solid #dce5e8;
+  background: #ffffff;
+  color: #526872;
+}
+
+.eliminar-btn-confirmar {
+  border: 1px solid #a53d3d;
+  background: #a53d3d;
+  color: #ffffff;
+}
+
+.eliminar-btn-confirmar:hover:not(:disabled) {
+  background: #8f3030;
+}
+
+.eliminar-modal button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.eliminar-modal button:focus-visible {
+  outline: 2px solid #306a7e;
+  outline-offset: 2px;
+}
+
+/* ==========================================
+   RESPONSIVE
+   ========================================== */
+
+@media (max-width: 600px) {
+  .eliminar-modal-fondo {
+    padding: 10px;
+  }
+
+  .eliminar-modal-header,
+  .eliminar-modal-body,
+  .eliminar-modal-footer {
+    padding: 18px;
+  }
+
+  .eliminar-modal-titulo h2 {
+    font-size: 16px;
+  }
+
+  .eliminar-modal-footer {
+    flex-wrap: wrap;
+  }
+}

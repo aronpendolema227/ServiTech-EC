@@ -8,6 +8,7 @@ import {
   Plus,
   Eye,
   Pencil,
+  Trash2,
 } from "lucide-react";
 
 import "../../styles/OrdenesRecientes.css";
@@ -24,6 +25,7 @@ function OrdenesRecientes({
   onNuevaOrden,
   onVerOrden,
   onEditarOrden,
+  onEliminarOrden,
 }) {
 
 
@@ -253,6 +255,19 @@ function OrdenesRecientes({
                         title="Editar orden"
                       >
                         <Pencil size={19} strokeWidth={1.8} />
+                      </button>
+                      
+                      {/* ===================================
+                          ELIMINAR ORDEN
+                          =================================== */}
+                      <button
+                        type="button"
+                        className="ordenes-btn-eliminar"
+                        onClick={() => onEliminarOrden(orden)}
+                        aria-label={`Eliminar orden ${orden.id}`}
+                        title="Eliminar orden"
+                      >
+                        <Trash2 size={19} strokeWidth={1.8} />
                       </button>
 
                     </div>
