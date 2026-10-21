@@ -1,75 +1,34 @@
 
 import OrdenesRecientes from "../components/dashboard/OrdenesRecientes";
-
 import OrdenDetalle from "../components/ordenes/OrdenDetalle";
-
 import { useEffect, useState } from "react";
-
 import {
   ClipboardList,
   Clock3,
   Wrench,
   CircleCheck,
 } from "lucide-react";
-
 import {
   listarOrdenes,
   crearOrden,
   actualizarOrden,
   eliminarOrden,
 } from "../services/ordenServicioService";
-
 import OrdenFormulario from "../components/ordenes/OrdenFormulario";
-
 import OrdenEditar from "../components/ordenes/OrdenEditar";
-
 import OrdenEliminar from "../components/ordenes/OrdenEliminar";
-
-
 import "../styles/Dashboard.css";
 
-// ==========================================
 // SERVITECH EC - DASHBOARD PRINCIPAL
-// ==========================================
-
 function DashboardPage() {
-
-  // ========================================
   // ESTADOS
-  // ========================================
   const [ordenes, setOrdenes] = useState([]);
   const [cargando, setCargando] = useState(true);
   const [error, setError] = useState("");
-
-  
-  // ========================================
-  // CONTROL DEL FORMULARIO MODAL
-  // ========================================
   const [modalAbierto, setModalAbierto] = useState(false);
-  
-  // ========================================
-  // CONTROL DE VISUALIZACION DE ORDENES
-  // ========================================
   const [ordenSeleccionada, setOrdenSeleccionada] = useState(null);
-
-  
-  // ========================================
-  // CONTROL DE EDICION DE ORDENES
-  // ========================================
   const [ordenEnEdicion, setOrdenEnEdicion] = useState(null);
-
-  
-  // ========================================
-  // CONTROL DE ELIMINACION DE ORDENES
-  // ========================================
   const [ordenAEliminar, setOrdenAEliminar] = useState(null);
-
-
-
-
-  // ========================================
-  // CONSULTAR ORDENES DESDE POSTGRESQL
-  // ========================================
   useEffect(() => {
     let activo = true;
 
@@ -107,10 +66,7 @@ function DashboardPage() {
     };
   }, []);
 
-  
-  // ========================================
   // CREATE - REGISTRAR NUEVA ORDEN
-  // ========================================
   const guardarNuevaOrden = async (datos) => {
 
     // Registrar la orden mediante nuestra API
@@ -125,11 +81,7 @@ function DashboardPage() {
     // Limpiar posibles errores anteriores
     setError("");
   };
-
-  
-  // ========================================
   // UPDATE - ACTUALIZAR ORDEN DE SERVICIO
-  // ========================================
   const guardarEdicionOrden = async (id, datos) => {
 
     // 1. Actualizar mediante nuestra API REST
@@ -148,10 +100,7 @@ function DashboardPage() {
     setError("");
   };
 
-  
-  // ========================================
   // DELETE - ELIMINAR ORDEN DE SERVICIO
-  // ========================================
   const confirmarEliminarOrden = async (id) => {
 
     // 1. Eliminar mediante nuestra API REST
@@ -166,11 +115,7 @@ function DashboardPage() {
     setError("");
   };
 
-
-
-  // ========================================
   // CALCULAR ESTADISTICAS
-  // ========================================
   const total = ordenes.length;
 
   const pendientes = ordenes.filter(
@@ -188,9 +133,7 @@ function DashboardPage() {
   const porcentaje = (cantidad) =>
     total > 0 ? Math.round((cantidad / total) * 100) : 0;
 
-  // ========================================
   // CONFIGURACION DE TARJETAS
-  // ========================================
   const tarjetas = [
     {
       titulo: "Total de órdenes",
@@ -222,9 +165,7 @@ function DashboardPage() {
     },
   ];
 
-  // ========================================
   // INTERFAZ DEL DASHBOARD
-  // ========================================
   return (
     <div className="dashboard">
 
@@ -276,9 +217,7 @@ function DashboardPage() {
         })}
       </section>
   
-      {/* ===================================
-          ORDENES DE SERVICIO RECIENTES
-          =================================== */}
+      {/* ORDENES DE SERVICIO RECIENTES*/}
       <OrdenesRecientes
         ordenes={ordenes}
         cargando={cargando}
@@ -289,9 +228,7 @@ function DashboardPage() {
         onEliminarOrden={setOrdenAEliminar}
       />
 
-      {/* ===================================
-          FORMULARIO DE NUEVA ORDEN
-          =================================== */}
+      {/* FORMULARIO DE NUEVA ORDEN */}
       {modalAbierto && (
         <OrdenFormulario
           onCerrar={() => setModalAbierto(false)}
@@ -299,9 +236,7 @@ function DashboardPage() {
         />
       )}
       
-      {/* ===================================
-          VISUALIZAR DETALLES DE UNA ORDEN
-          =================================== */}
+      {/* VISUALIZAR DETALLES DE UNA ORDEN */}
       {ordenSeleccionada && (
         <OrdenDetalle
           orden={ordenSeleccionada}
@@ -309,9 +244,7 @@ function DashboardPage() {
         />
       )}
 
-      {/* ===================================
-          EDITAR ORDEN DE SERVICIO
-          =================================== */}
+      {/* EDITAR ORDEN DE SERVICIO */}
       {ordenEnEdicion && (
         <OrdenEditar
           orden={ordenEnEdicion}
@@ -320,9 +253,7 @@ function DashboardPage() {
         />
       )}
       
-      {/* ===================================
-          ELIMINAR ORDEN DE SERVICIO
-          =================================== */}
+      {/* ELIMINAR ORDEN DE SERVICIO*/}
       {ordenAEliminar && (
         <OrdenEliminar
           orden={ordenAEliminar}

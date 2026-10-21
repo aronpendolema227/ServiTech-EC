@@ -1,7 +1,5 @@
 
-/* ==========================================
-    SERVITECH EC - ESTRUCTURA GENERAL
-   ========================================== */
+/* SERVITECH EC - ESTRUCTURA GENERAL */
 
 .app-contenedor {
   display: flex;
@@ -9,9 +7,7 @@
 }
 
 
-/* ==========================================
-    AREA PRINCIPAL DE LA APLICACION
-   ========================================== */
+/* AREA PRINCIPAL DE LA APLICACION */
 
 .app-area {
   display: flex;

@@ -13,10 +13,7 @@ import {
 
 import "../../styles/OrdenesRecientes.css";
 
-// ==========================================
 // SERVITECH EC - ORDENES RECIENTES
-// ==========================================
-
 
 function OrdenesRecientes({
   ordenes = [],
@@ -28,16 +25,11 @@ function OrdenesRecientes({
   onEliminarOrden,
 }) {
 
-
-  // ========================================
   // ESTADOS DE BUSQUEDA Y FILTROS
-  // ========================================
   const [busqueda, setBusqueda] = useState("");
   const [estadoFiltro, setEstadoFiltro] = useState("TODOS");
 
-  // ========================================
   // FORMATEAR FECHA
-  // ========================================
   const formatearFecha = (fecha) => {
     if (!fecha) return "Sin fecha";
 
@@ -48,9 +40,7 @@ function OrdenesRecientes({
     return `${partes[2]}/${partes[1]}/${partes[0]}`;
   };
 
-  // ========================================
   // FILTRAR Y ORDENAR REGISTROS
-  // ========================================
   const ordenesFiltradas = ordenes
     .filter((orden) => {
       const texto = [
@@ -80,9 +70,7 @@ function OrdenesRecientes({
   // Mostrar solamente los primeros cinco resultados
   const ordenesVisibles = ordenesFiltradas.slice(0, 5);
 
-  // ========================================
   // ETIQUETAS DE ESTADO
-  // ========================================
   const obtenerEstado = (estado) => {
     switch (estado) {
       case "PENDIENTE":
@@ -99,9 +87,7 @@ function OrdenesRecientes({
     }
   };
 
-  // ========================================
   // INTERFAZ
-  // ========================================
   return (
     <section className="ordenes-recientes">
 
@@ -231,9 +217,7 @@ function OrdenesRecientes({
                   <td>{formatearFecha(orden.fechaIngreso)}</td>
 
                   
-                  {/* ===================================
-                      ACCIONES DE LA ORDEN
-                      =================================== */}
+                  {/*ACCIONES DE LA ORDEN*/}
                   <td>
                     <div className="ordenes-recientes-acciones">
                       <button
@@ -257,9 +241,7 @@ function OrdenesRecientes({
                         <Pencil size={19} strokeWidth={1.8} />
                       </button>
                       
-                      {/* ===================================
-                          ELIMINAR ORDEN
-                          =================================== */}
+                      {/* ELIMINAR ORDEN*/}
                       <button
                         type="button"
                         className="ordenes-btn-eliminar"

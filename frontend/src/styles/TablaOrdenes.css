@@ -1,24 +1,18 @@
 
-/* ==========================================
-   SERVITECH EC - TABLA GENERAL DE ORDENES
-   ========================================== */
+/* SERVITECH EC - TABLA GENERAL DE ORDENES */
 
 .tabla-ordenes {
   width: 100%;
 }
 
-/* ==========================================
-   CONTENEDOR
-   ========================================== */
+/* CONTENEDOR */
 
 .tabla-ordenes-contenedor {
   width: 100%;
   overflow-x: auto;
 }
 
-/* ==========================================
-   TABLA
-   ========================================== */
+/* TABLA */
 
 .tabla-ordenes table {
   width: 100%;
@@ -64,9 +58,7 @@
   font-weight: 600;
 }
 
-/* ==========================================
-   MARCA Y MODELO
-   ========================================== */
+/* MARCA Y MODELO */
 
 .tabla-ordenes-equipo {
   display: flex;
@@ -84,9 +76,7 @@
   font-size: 12px;
 }
 
-/* ==========================================
-   DESCRIPCION DEL PROBLEMA
-   ========================================== */
+/* DESCRIPCION DEL PROBLEMA*/
 
 .tabla-ordenes-problema {
   max-width: 250px;
@@ -95,9 +85,7 @@
   text-overflow: ellipsis;
 }
 
-/* ==========================================
-   ETIQUETAS DE ESTADO
-   ========================================== */
+/* ETIQUETAS DE ESTADO */
 
 .tabla-ordenes-estado {
   display: inline-block;
@@ -129,9 +117,7 @@
   background: #ececec;
 }
 
-/* ==========================================
-   TABLA VACIA
-   ========================================== */
+/* TABLA VACIA */
 
 .tabla-ordenes .tabla-ordenes-vacio {
   padding: 40px 20px;
@@ -140,9 +126,7 @@
 }
 
 
-/* ==========================================
-   PIE DE TABLA
-   ========================================== */
+/* PIE DE TABLA */
 
 .tabla-ordenes-footer {
   display: flex;
@@ -158,9 +142,7 @@
 }
 
 
-/* ==========================================
-   RESPONSIVE
-   ========================================== */
+/* RESPONSIVE */
 
 @media (max-width: 700px) {
   .tabla-ordenes th,
@@ -169,10 +151,7 @@
   }
 }
 
-
-/* ==========================================
-   SERVITECH EC - BUSCADOR Y FILTROS
-   ========================================== */
+/* SERVITECH EC - BUSCADOR Y FILTROS */
 
 .tabla-ordenes-filtros {
   display: flex;
@@ -181,9 +160,7 @@
   margin-bottom: 22px;
 }
 
-/* ==========================================
-   BUSCADOR
-   ========================================== */
+/* BUSCADOR */
 
 .tabla-ordenes-busqueda {
   display: flex;
@@ -221,10 +198,7 @@
   color: #84949b;
 }
 
-/* ==========================================
-   FILTRO POR ESTADO
-   ========================================== */
-
+/* FILTRO POR ESTADO*/
 
 .tabla-ordenes-filtro-estado,
 .tabla-ordenes-filtro-orden {
@@ -260,9 +234,7 @@
   cursor: pointer;
 }
 
-/* ==========================================
-   ESTADOS DE ENFOQUE
-   ========================================== */
+/* ESTADOS DE ENFOQUE */
 
 .tabla-ordenes-busqueda:focus-within,
 .tabla-ordenes-filtro-estado:focus-within,
@@ -271,9 +243,7 @@
   box-shadow: 0 0 0 3px rgba(48, 106, 126, 0.12);
 }
 
-/* ==========================================
-   RESPONSIVE DE FILTROS
-   ========================================== */
+/* RESPONSIVE DE FILTROS */
 
 @media (max-width: 700px) {
   .tabla-ordenes-filtros {
@@ -290,9 +260,7 @@
 }
 
 
-/* ==========================================
-   SERVITECH EC - PAGINACION
-   ========================================== */
+/* SERVITECH EC - PAGINACION */
 
 .tabla-ordenes-paginacion {
   display: flex;
@@ -356,9 +324,7 @@
   outline-offset: 2px;
 }
 
-/* ==========================================
-   RESPONSIVE
-   ========================================== */
+/* RESPONSIVE */
 
 @media (max-width: 700px) {
   .tabla-ordenes-footer {
@@ -373,9 +339,7 @@
 
 
 
-/* ==========================================
-   SERVITECH EC - ACCIONES DE LA TABLA
-   ========================================== */
+/* SERVITECH EC - ACCIONES DE LA TABLA */
 
 .tabla-ordenes-acciones {
   display: flex;
@@ -384,9 +348,7 @@
   gap: 8px;
 }
 
-/* ==========================================
-   BOTON VISUALIZAR
-   ========================================== */
+/* BOTON VISUALIZAR*/
 
 .tabla-ordenes-btn-ver {
   width: 36px;
@@ -423,9 +385,7 @@
 }
 
 
-/* ==========================================
-   SERVITECH EC - BOTON EDITAR ORDEN
-   ========================================== */
+/* SERVITECH EC - BOTON EDITAR ORDEN*/
 
 .tabla-ordenes-btn-editar {
   width: 36px;
@@ -459,11 +419,7 @@
   outline-offset: 2px;
 }
 
-
-
-/* ==========================================
-   SERVITECH EC - BOTON ELIMINAR ORDEN
-   ========================================== */
+/* SERVITECH EC - BOTON ELIMINAR ORDEN */
 
 .tabla-ordenes-btn-eliminar {
   width: 36px;

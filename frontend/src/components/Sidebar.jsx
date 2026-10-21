@@ -7,10 +7,7 @@ import {
 
 import "../styles/Sidebar.css";
 
-// ==========================================
 // SERVITECH EC - MENU LATERAL
-// ==========================================
-
 const opciones = [
   {
     id: "dashboard",

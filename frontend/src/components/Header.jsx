@@ -2,9 +2,7 @@
 import { CalendarDays } from "lucide-react";
 import "../styles/Header.css";
 
-// ==========================================
 // SERVITECH EC - ENCABEZADO PRINCIPAL
-// ==========================================
 
 function Header({ paginaActual }) {
 

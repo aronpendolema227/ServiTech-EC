@@ -1,7 +1,6 @@
 
 package com.servitech.pendolemavasquez.entity;
 
-
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
@@ -10,22 +9,16 @@ import jakarta.validation.constraints.Size;
 
 import java.time.LocalDate;
 
-
 @Entity
 @Table(name = "ordenes_servicio")
 public class OrdenServicio {
 
-    
-    // =====================================
-    // IDENTIFICADOR
-    // =====================================
+    // IDENTIFICADOR 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    // =====================================
     // DATOS DEL CLIENTE Y EQUIPO
-    // =====================================
     @NotBlank(message = "El nombre del cliente es obligatorio")
     @Size(max = 100, message = "El nombre no puede superar 100 caracteres")
     @Column(nullable = false, length = 100)
@@ -45,9 +38,7 @@ public class OrdenServicio {
     @Column(length = 50)
     private String modelo;
 
-    // =====================================
     // INFORMACION DEL SERVICIO TECNICO
-    // =====================================
     @NotBlank(message = "La descripcion del problema es obligatoria")
     @Column(nullable = false, columnDefinition = "TEXT")
     private String problema;
@@ -64,16 +55,11 @@ public class OrdenServicio {
     @Column(name = "fecha_ingreso", nullable = false)
     private LocalDate fechaIngreso = LocalDate.now();
 
-
-    // =====================================
     // CONSTRUCTOR VACIO PARA JPA
-    // =====================================
     public OrdenServicio() {
     }
 
-    // =====================================
     // GETTERS Y SETTERS
-    // =====================================
     public Long getId() {
         return id;
     }

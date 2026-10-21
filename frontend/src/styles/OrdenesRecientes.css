@@ -1,7 +1,5 @@
 
-/* ==========================================
-   SERVITECH EC - ORDENES RECIENTES
-   ========================================== */
+/* SERVITECH EC - ORDENES RECIENTES*/
 
 .ordenes-recientes {
   width: 100%;
@@ -12,9 +10,7 @@
   box-shadow: 0 6px 18px rgba(25, 48, 57, 0.05);
 }
 
-/* ==========================================
-   ENCABEZADO
-   ========================================== */
+/* ENCABEZADO */
 
 .ordenes-recientes-header {
   display: flex;
@@ -53,9 +49,7 @@
   font-size: 13px;
 }
 
-/* ==========================================
-   BUSCADOR Y FILTROS
-   ========================================== */
+/* BUSCADOR Y FILTROS*/
 
 .ordenes-recientes-filtros {
   display: flex;
@@ -106,9 +100,7 @@
   outline: 2px solid rgba(48, 106, 126, 0.15);
 }
 
-/* ==========================================
-   TABLA
-   ========================================== */
+/* TABLA*/
 
 .ordenes-recientes-tabla-contenedor {
   width: 100%;
@@ -161,9 +153,7 @@
   color: #70818a;
 }
 
-/* ==========================================
-   ETIQUETAS DE ESTADO
-   ========================================== */
+/* ETIQUETAS DE ESTADO*/
 
 .ordenes-estado {
   display: inline-block;
@@ -194,9 +184,7 @@
   color: #555555;
 }
 
-/* ==========================================
-   PIE DE TABLA
-   ========================================== */
+/* PIE DE TABLA */
 
 .ordenes-recientes-footer {
   padding-top: 19px;
@@ -204,9 +192,7 @@
   font-size: 12px;
 }
 
-/* ==========================================
-   RESPONSIVE
-   ========================================== */
+/* RESPONSIVE*/
 
 @media (max-width: 700px) {
   .ordenes-recientes {
@@ -228,10 +214,7 @@
   }
 }
 
-
-/* ==========================================
-   BOTON NUEVA ORDEN
-   ========================================== */
+/* BOTON NUEVA ORDEN */
 
 .ordenes-recientes-btn-nueva {
   display: inline-flex;
@@ -280,10 +263,7 @@
   }
 }
 
-
-/* ==========================================
-   ACCIONES DE LAS ORDENES
-   ========================================== */
+/* ACCIONES DE LAS ORDENES */
 
 .ordenes-recientes-acciones {
   display: flex;
@@ -318,11 +298,7 @@
   outline-offset: 2px;
 }
 
-
-
-/* ==========================================
-   SERVITECH EC - BOTON EDITAR ORDEN
-   ========================================== */
+/* ERVITECH EC - BOTON EDITAR ORDEN */
 
 .ordenes-btn-editar {
   width: 36px;
@@ -353,9 +329,7 @@
 
 
 
-/* ==========================================
-   SERVITECH EC - BOTON ELIMINAR ORDEN
-   ========================================== */
+/* SERVITECH EC - BOTON ELIMINAR ORDEN*/
 
 .ordenes-btn-eliminar {
   width: 36px;

@@ -1,7 +1,5 @@
 
-/* ==========================================
-    SERVITECH EC - DETALLE DE ORDEN
-   ========================================== */
+/* SERVITECH EC - DETALLE DE ORDEN*/
 
 /* FONDO DEL MODAL */
 
@@ -31,9 +29,7 @@
   box-shadow: 0 20px 60px rgba(0, 0, 0, 0.20);
 }
 
-/* ==========================================
-   ENCABEZADO
-   ========================================== */
+/* ENCABEZADO*/
 
 .detalle-modal-header {
   display: flex;
@@ -91,9 +87,7 @@
   background: #edf3f5;
 }
 
-/* ==========================================
-   DATOS DE LA ORDEN
-   ========================================== */
+/* DATOS DE LA ORDEN */
 
 .detalle-modal-body {
   display: flex;
@@ -127,9 +121,7 @@
   overflow-wrap: anywhere;
 }
 
-/* ==========================================
-   ESTADOS
-   ========================================== */
+/* ESTADOS */
 
 .detalle-estado {
   display: inline-block;
@@ -159,9 +151,7 @@
   color: #555555;
 }
 
-/* ==========================================
-   DESCRIPCION DEL PROBLEMA
-   ========================================== */
+/* DESCRIPCION DEL PROBLEMA */
 
 .detalle-problema {
   border-top: 1px solid #e6ecee;
@@ -188,9 +178,7 @@
   overflow-wrap: anywhere;
 }
 
-/* ==========================================
-   PIE DEL MODAL
-   ========================================== */
+/* PIE DEL MODAL */
 
 .detalle-modal-footer {
   display: flex;
@@ -220,9 +208,7 @@
   outline-offset: 3px;
 }
 
-/* ==========================================
-   RESPONSIVE
-   ========================================== */
+/* RESPONSIVE */
 
 @media (max-width: 600px) {
   .detalle-modal-fondo {

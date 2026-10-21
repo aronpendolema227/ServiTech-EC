@@ -1,15 +1,11 @@
 
-/* ==========================================
-   SERVITECH EC - DASHBOARD
-   ========================================== */
+/* ERVITECH EC - DASHBOARD */
 
 .dashboard {
   width: 100%;
 }
 
-/* ==========================================
-   TARJETAS ESTADISTICAS
-   ========================================== */
+/* TARJETAS ESTADISTICAS */
 
 .dashboard-estadisticas {
   display: grid;
@@ -62,9 +58,7 @@
   color: #193039;
 }
 
-/* ==========================================
-   PARTE SUPERIOR
-   ========================================== */
+/* PARTE SUPERIOR */
 
 .tarjeta-superior {
   display: flex;
@@ -90,9 +84,7 @@
   background: rgba(255, 255, 255, 0.15);
 }
 
-/* ==========================================
-   PARTE INFERIOR
-   ========================================== */
+/*PARTE INFERIOR */
 
 .tarjeta-inferior h2 {
   margin: 0 0 8px;
@@ -108,9 +100,7 @@
   opacity: 0.85;
 }
 
-/* ==========================================
-   MENSAJE DE ERROR
-   ========================================== */
+/* MENSAJE DE ERROR*/
 
 .dashboard-error {
   padding: 14px 18px;
@@ -121,11 +111,7 @@
   color: #9d322b;
   font-size: 14px;
 }
-
-/* ==========================================
-   RESPONSIVE
-   ========================================== */
-
+/* RESPONSIVE */
 @media (max-width: 1200px) {
   .dashboard-estadisticas {
     grid-template-columns: repeat(2, minmax(0, 1fr));

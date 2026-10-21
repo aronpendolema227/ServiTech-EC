@@ -10,44 +10,28 @@ import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.server.ResponseStatusException;
 
 import java.util.List;
-
-// ==========================================
 // SERVITECH EC - CAPA DE LOGICA DE NEGOCIO
-// ==========================================
-
 @Service
 public class OrdenServicioService {
 
     private final OrdenServicioRepository repository;
-
-    // ======================================
     // INYECCION DE DEPENDENCIAS
-    // ======================================
     public OrdenServicioService(
             OrdenServicioRepository repository) {
         this.repository = repository;
     }
-
-    // ======================================
     // CREATE - CREAR ORDEN DE SERVICIO
-    // ======================================
     @Transactional
     public OrdenServicio crear(OrdenServicio orden) {
         orden.setId(null);
         return repository.save(orden);
     }
-
-    // ======================================
     // READ - LISTAR TODAS LAS ORDENES
-    // ======================================
     @Transactional(readOnly = true)
     public List<OrdenServicio> listar() {
         return repository.findAll();
     }
-
-    // ======================================
     // READ - BUSCAR UNA ORDEN POR ID
-    // ======================================
     @Transactional(readOnly = true)
     public OrdenServicio buscarPorId(Long id) {
         return repository.findById(id)
@@ -58,10 +42,7 @@ public class OrdenServicioService {
                         )
                 );
     }
-
-    // ======================================
     // UPDATE - ACTUALIZAR ORDEN
-    // ======================================
     @Transactional
     public OrdenServicio actualizar(
             Long id, OrdenServicio datos) {
@@ -78,10 +59,7 @@ public class OrdenServicioService {
 
         return repository.save(orden);
     }
-
-    // ======================================
     // DELETE - ELIMINAR ORDEN
-    // ======================================
     @Transactional
     public void eliminar(Long id) {
 

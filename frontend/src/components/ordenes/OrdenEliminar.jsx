@@ -9,23 +9,18 @@ import {
 
 import "../../styles/OrdenEliminar.css";
 
-// ==========================================
 // SERVITECH EC - ELIMINAR ORDEN
-// ==========================================
-
 function OrdenEliminar({ orden, onCerrar, onConfirmar }) {
 
-  // ========================================
+  
   // ESTADOS
-  // ========================================
+  
   const [eliminando, setEliminando] = useState(false);
   const [error, setError] = useState("");
 
   const cancelarRef = useRef(null);
-
-  // ========================================
+  
   // COMPORTAMIENTO DEL MODAL
-  // ========================================
   useEffect(() => {
     const elementoAnterior = document.activeElement;
     const overflowAnterior = document.body.style.overflow;
@@ -78,9 +73,7 @@ function OrdenEliminar({ orden, onCerrar, onConfirmar }) {
 
   }, [onCerrar, eliminando]);
 
-  // ========================================
   // CONFIRMAR ELIMINACION
-  // ========================================
   const manejarEliminar = async () => {
 
     if (eliminando) return;
@@ -118,9 +111,7 @@ function OrdenEliminar({ orden, onCerrar, onConfirmar }) {
     }
   };
 
-  // ========================================
   // INTERFAZ
-  // ========================================
   return (
     <div className="eliminar-modal-fondo">
 

@@ -1,11 +1,5 @@
 
-/* ==========================================
-   SERVITECH EC - EDITAR ORDEN
-   ========================================== */
-
-/* ==========================================
-   SELECTOR DE ESTADO
-   ========================================== */
+/* SELECTOR DE ESTADO */
 
 .orden-editar-select {
   width: 100%;
@@ -36,9 +30,7 @@
   cursor: not-allowed;
 }
 
-/* ==========================================
-   FECHA ORIGINAL
-   ========================================== */
+/* FECHA ORIGINAL*/
 
 .orden-editar-fecha input {
   background: #edf3f5;
@@ -46,9 +38,7 @@
   cursor: default;
 }
 
-/* ==========================================
-   RESPONSIVE
-   ========================================== */
+/*RESPONSIVE */
 
 @media (max-width: 600px) {
   .orden-editar-select {

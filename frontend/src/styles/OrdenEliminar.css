@@ -1,7 +1,5 @@
 
-/* ==========================================
-   SERVITECH EC - ELIMINAR ORDEN
-   ========================================== */
+/* SERVITECH EC - ELIMINAR ORDEN */
 
 /* FONDO DEL MODAL */
 
@@ -31,9 +29,7 @@
   box-shadow: 0 20px 60px rgba(0, 0, 0, 0.20);
 }
 
-/* ==========================================
-   ENCABEZADO
-   ========================================== */
+/* ENCABEZADO */
 
 .eliminar-modal-header {
   display: flex;
@@ -93,9 +89,7 @@
   background: #edf3f5;
 }
 
-/* ==========================================
-   CUERPO
-   ========================================== */
+/* CUERPO */
 
 .eliminar-modal-body {
   display: flex;
@@ -143,9 +137,7 @@
   overflow-wrap: anywhere;
 }
 
-/* ==========================================
-   ADVERTENCIA
-   ========================================== */
+/* ADVERTENCIA */
 
 .eliminar-advertencia {
   display: flex;
@@ -177,9 +169,7 @@
   font-size: 13px;
 }
 
-/* ==========================================
-   BOTONES
-   ========================================== */
+/* BOTONES */
 
 .eliminar-modal-footer {
   display: flex;
@@ -231,9 +221,7 @@
   outline-offset: 2px;
 }
 
-/* ==========================================
-   RESPONSIVE
-   ========================================== */
+/* RESPONSIVE */
 
 @media (max-width: 600px) {
   .eliminar-modal-fondo {

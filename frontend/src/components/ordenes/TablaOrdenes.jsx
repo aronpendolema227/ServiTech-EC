@@ -13,9 +13,7 @@ import {
 
 import "../../styles/TablaOrdenes.css";
 
-// ==========================================
 // SERVITECH EC - TABLA GENERAL DE ORDENES
-// ==========================================
 const REGISTROS_POR_PAGINA = 10;
 
 function TablaOrdenes({
@@ -27,20 +25,13 @@ function TablaOrdenes({
   onEliminarOrden,
 }) {
 
-
-  
-  // ========================================
   // ESTADOS DE BUSQUEDA, FILTROS, ORDENAMIENTO Y ESTADO DE PAGINACION
-  // ========================================
   const [busqueda, setBusqueda] = useState("");
   const [estadoFiltro, setEstadoFiltro] = useState("TODOS");
   const [ordenamiento, setOrdenamiento] = useState("id-desc");
   const [paginaActual, setPaginaActual] = useState(1);
 
-
-  // ========================================
   // FORMATEAR FECHA
-  // ========================================
   const formatearFecha = (fecha) => {
     if (!fecha) return "Sin fecha";
 
@@ -51,9 +42,7 @@ function TablaOrdenes({
     return `${partes[2]}/${partes[1]}/${partes[0]}`;
   };
 
-  // ========================================
   // CONFIGURAR ESTADOS
-  // ========================================
   const obtenerEstado = (estado) => {
     const estados = {
       PENDIENTE: {
@@ -76,10 +65,7 @@ function TablaOrdenes({
     };
   };
 
-  
-  // ========================================
   // ORDENAR REGISTROS
-  // ========================================
   const ordenesOrdenadas = [...ordenes].sort((a, b) => {
 
     const idA = Number(a.id);
@@ -99,7 +85,6 @@ function TablaOrdenes({
         const resultado = fechaB.localeCompare(fechaA);
         return resultado || idB - idA;
       }
-
       // FECHA ASCENDENTE
       case "fecha-asc": {
         const resultado = fechaA.localeCompare(fechaB);
@@ -113,18 +98,14 @@ function TablaOrdenes({
     }
   });
 
-  // ========================================
   // NORMALIZAR TEXTO PARA BUSQUEDAS
-  // ========================================
   const normalizarTexto = (valor) =>
     String(valor ?? "")
       .normalize("NFD")
       .replace(/[\u0300-\u036f]/g, "")
       .toLowerCase();
 
-  // ========================================
   // APLICAR BUSQUEDA Y FILTRO DE ESTADOS
-  // ========================================
   const textoBuscado = normalizarTexto(busqueda.trim());
 
   const ordenesFiltradas = ordenesOrdenadas.filter((orden) => {
@@ -133,9 +114,7 @@ function TablaOrdenes({
     const coincideEstado =
       estadoFiltro === "TODOS" ||
       orden.estado === estadoFiltro;
-
     // Construir texto para buscar
-    
     const contenido = [
       orden.id,
       `#${orden.id}`,
@@ -149,16 +128,13 @@ function TablaOrdenes({
       .map(normalizarTexto)
       .join(" ");
 
-
     // Comprobar la busqueda
     const coincideBusqueda = contenido.includes(textoBuscado);
 
     return coincideEstado && coincideBusqueda;
   });
-  // ========================================
+  
   // CALCULAR PAGINACION
-  // ========================================
-
   // Cantidad de registros filtrados
   const totalRegistros = ordenesFiltradas.length;
 
@@ -204,15 +180,11 @@ function TablaOrdenes({
     (_, indice) => inicioVentana + indice
   );
 
-  // ========================================
   // INTERFAZ
-  // ========================================
   return (
     <div className="tabla-ordenes">
   
-      {/* ====================================
-          BUSCADOR Y FILTROS
-          ==================================== */}
+      {/* BUSCADOR Y FILTROS*/}
       <div className="tabla-ordenes-filtros">
 
         {/* BUSCADOR */}
@@ -253,9 +225,7 @@ function TablaOrdenes({
           </select>
         </div>
         
-        {/* ====================================
-            ORDENAMIENTO DE REGISTROS
-            ==================================== */}
+        {/* ORDENAMIENTO DE REGISTROS */}
         <div className="tabla-ordenes-filtro-orden">
 
           <ArrowDownUp size={18} strokeWidth={1.8} />
@@ -376,9 +346,7 @@ function TablaOrdenes({
                       {formatearFecha(orden.fechaIngreso)}
                     </td>
                     
-                    {/* ====================================
-                        ACCIONES DE LA ORDEN
-                        ==================================== */}
+                    {/* ACCIONES DE LA ORDEN */}
                     <td>
                       <div className="tabla-ordenes-acciones">
 
@@ -393,9 +361,7 @@ function TablaOrdenes({
                           <Eye size={19} strokeWidth={1.8} />
                         </button>
                         
-                        {/* ====================================
-                            EDITAR ORDEN
-                            ==================================== */}
+                        {/* EDITAR ORDEN */}
                         <button
                           type="button"
                           className="tabla-ordenes-btn-editar"
@@ -407,9 +373,7 @@ function TablaOrdenes({
                         </button>
 
                         
-                        {/* ====================================
-                            ELIMINAR ORDEN
-                            ==================================== */}
+                        {/* ELIMINAR ORDEN */}
                         <button
                           type="button"
                           className="tabla-ordenes-btn-eliminar"
@@ -436,9 +400,7 @@ function TablaOrdenes({
       </div>
 
       
-      {/* ====================================
-          PIE DE TABLA Y PAGINACION
-          ==================================== */}
+      {/* PIE DE TABLA Y PAGINACION*/}
       <div className="tabla-ordenes-footer">
 
         {/* CANTIDAD DE REGISTROS */}

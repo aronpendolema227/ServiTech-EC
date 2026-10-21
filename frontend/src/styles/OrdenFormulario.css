@@ -1,8 +1,4 @@
 
-/* ==========================================
-   SERVITECH EC - FORMULARIO DE ORDENES
-   ========================================== */
-
 /* FONDO DEL MODAL */
 
 .orden-modal-fondo {
@@ -28,9 +24,7 @@
   box-shadow: 0 20px 60px rgba(0, 0, 0, 0.20);
 }
 
-/* ==========================================
-   ENCABEZADO
-   ========================================== */
+/* ENCABEZADO */
 
 .orden-modal-header {
   display: flex;
@@ -85,9 +79,7 @@
   background: #edf3f5;
 }
 
-/* ==========================================
-   CAMPOS DEL FORMULARIO
-   ========================================== */
+/* CAMPOS DEL FORMULARIO */
 
 .orden-modal-body {
   display: flex;
@@ -143,9 +135,7 @@
   opacity: 0.7;
 }
 
-/* ==========================================
-   INFORMACION Y ERRORES
-   ========================================== */
+/* INFORMACION Y ERRORES */
 
 .orden-form-info {
   display: flex;
@@ -176,9 +166,7 @@
   font-size: 13px;
 }
 
-/* ==========================================
-   BOTONES
-   ========================================== */
+/* BOTONES */
 
 .orden-modal-footer {
   display: flex;
@@ -227,9 +215,7 @@
   outline-offset: 2px;
 }
 
-/* ==========================================
-   RESPONSIVE
-   ========================================== */
+/* RESPONSIVE */
 
 @media (max-width: 600px) {
   .orden-modal-fondo {

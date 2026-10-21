@@ -23,44 +23,22 @@ import OrdenEditar from "../components/ordenes/OrdenEditar";
 import OrdenEliminar from "../components/ordenes/OrdenEliminar";
 import "../styles/OrdenesPage.css";
 
-// ==========================================
 // SERVITECH EC - PAGINA ORDENES DE SERVICIO
-// ==========================================
-
 function OrdenesPage() {
-
-  // ========================================
   // ESTADOS
-  // ========================================
   const [ordenes, setOrdenes] = useState([]);
   const [cargando, setCargando] = useState(true);
   const [error, setError] = useState("");
-  // ========================================
   // CONTROL DEL FORMULARIO DE REGISTRO
-  // ========================================
   const [modalAbierto, setModalAbierto] = useState(false);
-  
-  // ========================================
   // CONTROL DE VISUALIZACION DE ORDENES
-  // ========================================
   const [ordenSeleccionada, setOrdenSeleccionada] = useState(null);
-  
-  // ========================================
   // CONTROL DE EDICION DE ORDENES
-  // ========================================
   const [ordenEnEdicion, setOrdenEnEdicion] = useState(null);
-  
-  // ========================================
   // CONTROL DE ELIMINACION DE ORDENES
-  // ========================================
   const [ordenAEliminar, setOrdenAEliminar] = useState(null);
 
-
-
-
-  // ========================================
   // CONSULTAR ORDENES DESDE POSTGRESQL
-  // ========================================
   useEffect(() => {
     let activo = true;
 
@@ -98,10 +76,7 @@ function OrdenesPage() {
     };
   }, []);
 
-  
-  // ========================================
   // CREATE - REGISTRAR NUEVA ORDEN
-  // ========================================
   const guardarNuevaOrden = async (datos) => {
 
     // 1. Registrar la orden mediante Spring Boot
@@ -116,9 +91,8 @@ function OrdenesPage() {
     // 3. Limpiar posibles errores anteriores
     setError("");
   };
-  // ========================================
+  
   // UPDATE - ACTUALIZAR ORDEN DE SERVICIO
-  // ========================================
   const guardarEdicionOrden = async (id, datos) => {
 
     // 1. Enviar actualizacion a Spring Boot
@@ -137,9 +111,7 @@ function OrdenesPage() {
     setError("");
   };
   
-  // ========================================
-  // DELETE - ELIMINAR ORDEN DE SERVICIO
-  // ========================================
+  //DELETE - ELIMINAR ORDEN DE SERVICIO
   const confirmarEliminarOrden = async (id) => {
 
     // 1. Eliminar mediante Spring Boot
@@ -156,9 +128,7 @@ function OrdenesPage() {
     setError("");
   };
 
-  // ========================================
   // CALCULAR INDICADORES
-  // ========================================
   const total = ordenes.length;
 
   const pendientes = ordenes.filter(
@@ -173,9 +143,7 @@ function OrdenesPage() {
     (orden) => orden.estado === "FINALIZADO"
   ).length;
 
-  // ========================================
   // CONFIGURACION DE TARJETAS
-  // ========================================
   const tarjetas = [
     {
       titulo: "Todas las órdenes",
@@ -207,9 +175,7 @@ function OrdenesPage() {
     },
   ];
 
-  // ========================================
   // INTERFAZ
-  // ========================================
   return (
     <div className="ordenes-pagina">
 
@@ -259,15 +225,11 @@ function OrdenesPage() {
         })}
       </section>
 
-      {/* ====================================
-          SECCION DEL LISTADO COMPLETO
-          ==================================== */}
+      {/* SECCION DEL LISTADO COMPLETO*/}
       <section className="ordenes-pagina-listado">
 
         
-        {/* ====================================
-            ENCABEZADO DEL LISTADO GENERAL
-            ==================================== */}
+        {/* ENCABEZADO DEL LISTADO GENERAL */}
         <div className="ordenes-pagina-listado-header">
 
           <div className="ordenes-pagina-listado-icono">
@@ -293,11 +255,7 @@ function OrdenesPage() {
 
         </div>
 
-
-        
-        {/* ====================================
-            TABLA GENERAL DE ORDENES
-            ==================================== */}
+        {/* TABLA GENERAL DE ORDENES */}
         <TablaOrdenes
           ordenes={ordenes}
           cargando={cargando}
@@ -309,9 +267,7 @@ function OrdenesPage() {
 
       </section>
 
-        {/* ====================================
-            FORMULARIO PARA REGISTRAR ORDEN
-            ==================================== */}
+        {/* FORMULARIO PARA REGISTRAR ORDEN*/}
         {modalAbierto && (
           <OrdenFormulario
             onCerrar={() => setModalAbierto(false)}
@@ -320,9 +276,7 @@ function OrdenesPage() {
         )}
 
         
-        {/* ====================================
-            VISUALIZAR DETALLES DE UNA ORDEN
-            ==================================== */}
+        {/* VISUALIZAR DETALLES DE UNA ORDEN*/}
         {ordenSeleccionada && (
           <OrdenDetalle
             orden={ordenSeleccionada}
@@ -331,9 +285,7 @@ function OrdenesPage() {
         )}
 
         
-        {/* ====================================
-            EDITAR ORDEN DE SERVICIO
-            ==================================== */}
+        {/* EDITAR ORDEN DE SERVICIO */}
         {ordenEnEdicion && (
           <OrdenEditar
             orden={ordenEnEdicion}
@@ -343,9 +295,7 @@ function OrdenesPage() {
         )}
 
         
-        {/* ====================================
-            ELIMINAR ORDEN DE SERVICIO
-            ==================================== */}
+        {/* ELIMINAR ORDEN DE SERVICIO*/}
         {ordenAEliminar && (
           <OrdenEliminar
             orden={ordenAEliminar}

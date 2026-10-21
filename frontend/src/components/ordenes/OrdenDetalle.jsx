@@ -7,16 +7,11 @@ import {
 
 import "../../styles/OrdenDetalle.css";
 
-// ==========================================
 // SERVITECH EC - DETALLES DE UNA ORDEN
-// ==========================================
-
 function OrdenDetalle({ orden, onCerrar }) {
   const botonCerrarRef = useRef(null);
 
-  // ========================================
   // COMPORTAMIENTO DEL MODAL
-  // ========================================
   useEffect(() => {
     const elementoAnterior = document.activeElement;
     const overflowAnterior = document.body.style.overflow;
@@ -46,9 +41,7 @@ function OrdenDetalle({ orden, onCerrar }) {
 
   if (!orden) return null;
 
-  // ========================================
   // FORMATEAR FECHA
-  // ========================================
   const formatearFecha = (fecha) => {
     if (!fecha) return "Sin fecha";
 
@@ -59,9 +52,7 @@ function OrdenDetalle({ orden, onCerrar }) {
     return `${partes[2]}/${partes[1]}/${partes[0]}`;
   };
 
-  // ========================================
   // MOSTRAR ESTADO
-  // ========================================
   const estados = {
     PENDIENTE: "Pendiente",
     "EN REPARACION": "En reparación",
@@ -79,9 +70,7 @@ function OrdenDetalle({ orden, onCerrar }) {
           ? "finalizada"
           : "desconocido";
 
-  // ========================================
   // INTERFAZ
-  // ========================================
   return (
     <div className="detalle-modal-fondo">
 

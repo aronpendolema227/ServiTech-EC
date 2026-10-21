@@ -4,10 +4,7 @@ import { ClipboardPlus, X, Save, Info } from "lucide-react";
 
 import "../../styles/OrdenFormulario.css";
 
-// ==========================================
 // SERVITECH EC - FORMULARIO DE ORDENES
-// ==========================================
-
 const datosIniciales = {
   cliente: "",
   equipo: "",
@@ -18,18 +15,14 @@ const datosIniciales = {
 
 function OrdenFormulario({ onCerrar, onGuardar }) {
 
-  // ========================================
   // ESTADOS DEL FORMULARIO
-  // ========================================
   const [formulario, setFormulario] = useState(datosIniciales);
   const [guardando, setGuardando] = useState(false);
   const [error, setError] = useState("");
 
   const clienteRef = useRef(null);
 
-  // ========================================
   // COMPORTAMIENTO DEL MODAL
-  // ========================================
   useEffect(() => {
     const overflowAnterior = document.body.style.overflow;
 
@@ -50,9 +43,7 @@ function OrdenFormulario({ onCerrar, onGuardar }) {
     };
   }, [onCerrar, guardando]);
 
-  // ========================================
   // ACTUALIZAR CAMPOS
-  // ========================================
   const manejarCambio = (evento) => {
     const { name, value } = evento.target;
 
@@ -62,9 +53,7 @@ function OrdenFormulario({ onCerrar, onGuardar }) {
     }));
   };
 
-  // ========================================
   // GUARDAR NUEVA ORDEN
-  // ========================================
   const manejarSubmit = async (evento) => {
     evento.preventDefault();
 
@@ -103,9 +92,7 @@ function OrdenFormulario({ onCerrar, onGuardar }) {
     }
   };
 
-  // ========================================
   // INTERFAZ DEL FORMULARIO
-  // ========================================
   return (
     <div className="orden-modal-fondo">
 

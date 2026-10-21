@@ -5,14 +5,8 @@ import { Pencil, X, Save, Info } from "lucide-react";
 import "../../styles/OrdenFormulario.css";
 import "../../styles/OrdenEditar.css";
 
-// ==========================================
 // SERVITECH EC - EDITAR ORDEN DE SERVICIO
-// ==========================================
-
-// ==========================================
 // CONFIGURACION DE CAMPOS
-// ==========================================
-
 const campos = [
   {
     nombre: "cliente",
@@ -44,16 +38,10 @@ const campos = [
   },
 ];
 
-// ==========================================
 // COMPONENTE PRINCIPAL
-// ==========================================
-
 function OrdenEditar({ orden, onCerrar, onGuardar }) {
 
-  // ========================================
   // ESTADOS
-  // ========================================
-
   const [formulario, setFormulario] = useState(() => ({
     cliente: orden.cliente ?? "",
     equipo: orden.equipo ?? "",
@@ -68,10 +56,7 @@ function OrdenEditar({ orden, onCerrar, onGuardar }) {
 
   const clienteRef = useRef(null);
 
-  // ========================================
   // COMPORTAMIENTO DEL MODAL
-  // ========================================
-
   useEffect(() => {
     const elementoAnterior = document.activeElement;
     const overflowAnterior = document.body.style.overflow;
@@ -94,10 +79,7 @@ function OrdenEditar({ orden, onCerrar, onGuardar }) {
     };
   }, [onCerrar, guardando]);
 
-  // ========================================
   // ACTUALIZAR CAMPOS
-  // ========================================
-
   const manejarCambio = (evento) => {
     const { name, value } = evento.target;
 
@@ -107,10 +89,7 @@ function OrdenEditar({ orden, onCerrar, onGuardar }) {
     }));
   };
 
-  // ========================================
   // FORMATEAR FECHA
-  // ========================================
-
   const formatearFecha = (fecha) => {
     if (!fecha) return "Sin fecha";
 
@@ -121,10 +100,7 @@ function OrdenEditar({ orden, onCerrar, onGuardar }) {
     return `${partes[2]}/${partes[1]}/${partes[0]}`;
   };
 
-  // ========================================
   // GUARDAR CAMBIOS
-  // ========================================
-
   const manejarSubmit = async (evento) => {
     evento.preventDefault();
 
@@ -188,10 +164,7 @@ function OrdenEditar({ orden, onCerrar, onGuardar }) {
     }
   };
 
-  // ========================================
   // INTERFAZ DEL MODAL
-  // ========================================
-
   return (
     <div className="orden-modal-fondo">
 

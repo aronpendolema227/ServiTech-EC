@@ -1,34 +1,18 @@
 
 import { useState } from "react";
-
-// ==========================================
 // COMPONENTES PRINCIPALES
-// ==========================================
 import Sidebar from "./components/Sidebar";
 import Header from "./components/Header";
-
-// ==========================================
 // PAGINAS
-// ==========================================
 import DashboardPage from "./pages/DashboardPage";
-
 import OrdenesPage from "./pages/OrdenesPage";
 
-
-// ==========================================
 // ESTILOS
-// ==========================================
 import "./styles/Layout.css";
-
-// ==========================================
 // SERVITECH EC - COMPONENTE PRINCIPAL
-// ==========================================
-
 function App() {
 
-  // ========================================
   // CONTROL DE NAVEGACION
-  // ========================================
   const [paginaActual, setPaginaActual] = useState("dashboard");
 
   const esDashboard = paginaActual === "dashboard";
@@ -36,17 +20,13 @@ function App() {
   return (
     <div className="app-contenedor">
 
-      {/* ====================================
-          MENU LATERAL
-          ==================================== */}
+      {/* MENU LATERAL*/}
       <Sidebar
         paginaActual={paginaActual}
         cambiarPagina={setPaginaActual}
       />
 
-      {/* ====================================
-          AREA PRINCIPAL
-          ==================================== */}
+      {/* AREA PRINCIPAL */}
       <div className="app-area">
 
         {/* ENCABEZADO SUPERIOR */}
@@ -70,9 +50,7 @@ function App() {
             </p>
           </div>
 
-          {/* ==================================
-              NAVEGACION ENTRE PAGINAS
-              ================================== */}
+          {/* NAVEGACION ENTRE PAGINAS */}
 
           {esDashboard ? (
 
