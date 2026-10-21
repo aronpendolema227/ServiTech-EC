@@ -1,38 +1,55 @@
 # ServiTech EC
 
-**Sistema web de gestión de órdenes de servicio técnico** desarrollado para registrar, consultar y administrar las reparaciones de equipos tecnológicos.
+**Sistema web de gestión de órdenes de servicio técnico** para registrar, consultar y administrar reparaciones de equipos tecnológicos.
 
-El proyecto implementa una arquitectura cliente-servidor con una **API REST en Java y Spring Boot**, una **interfaz en React** y una **base de datos PostgreSQL**. Utiliza **Spring Data JPA e Hibernate** para la capa de persistencia.
+ServiTech EC es un proyecto académico **full-stack** con una API REST desarrollada en **Java y Spring Boot**, una interfaz web construida con **React y Vite** y una base de datos **PostgreSQL**. La persistencia se implementa mediante **Spring Data JPA e Hibernate**.
 
-> **Estado del proyecto:** En desarrollo. El CRUD del backend se ha probado mediante solicitudes HTTP; en el frontend ya están integradas la consulta y la creación de órdenes. Las acciones visuales de edición y eliminación están pendientes.
+> **Estado del proyecto:** funcionalidades principales implementadas y probadas. El registro, la consulta, la edición y la eliminación de órdenes están disponibles tanto desde el Dashboard como desde el módulo de Órdenes de servicio.
 
 ## Funcionalidades
 
-### Implementadas
+### Gestión de órdenes de servicio
 
-- Registro de órdenes de servicio con cliente, equipo, marca, modelo y descripción del problema.
-- Consulta de todas las órdenes y consulta individual por identificador mediante la API.
-- Actualización y eliminación de órdenes mediante endpoints REST.
-- Validación de campos obligatorios, límites de caracteres y estados permitidos en el backend.
-- Dashboard con indicadores de órdenes totales, pendientes, en reparación y finalizadas.
-- Tabla de órdenes recientes con búsqueda y filtro por estado.
-- Formulario modal para registrar nuevas órdenes desde React.
-- Actualización de las estadísticas y la tabla al crear una orden, sin recargar la página.
-- Interfaz adaptable con iconos de Lucide React.
+- **Registrar** órdenes con nombre del cliente, equipo, marca, modelo y descripción del problema.
+- **Consultar** el detalle de cada orden en un modal, incluida la descripción completa del problema.
+- **Editar** los datos de una orden y actualizar su estado de reparación.
+- **Eliminar** órdenes mediante un modal de confirmación para evitar eliminaciones accidentales.
+- Validar los campos obligatorios, las longitudes permitidas y los estados de las órdenes en el backend.
+- Actualizar las tablas y los indicadores después de operaciones exitosas, sin recargar manualmente la página.
 
-### Próximas mejoras
+Los estados admitidos son `PENDIENTE`, `EN REPARACION` y `FINALIZADO`.
 
-- Visualización detallada, edición y eliminación de órdenes desde la interfaz web.
-- Página completa de administración de órdenes.
-- Gráficos de estados e historial de actividad, según el alcance final del proyecto.
-- Pruebas integrales y documentación de entrega.
+### Dashboard
+
+- Tarjetas con el **total de órdenes** y las cantidades **pendientes**, **en reparación** y **finalizadas**.
+- Porcentajes de cada estado respecto del total.
+- Tabla con las **cinco órdenes más recientes**.
+- Búsqueda y filtro por estado en el listado reciente.
+- Acceso a las operaciones de registro, visualización, edición y eliminación mediante botones y modales.
+
+### Módulo «Órdenes de servicio»
+
+- Listado completo de órdenes obtenidas desde PostgreSQL.
+- Búsqueda por **ID, cliente, equipo, marca, modelo, problema o estado**, sin distinguir entre mayúsculas y minúsculas ni entre textos con y sin tildes.
+- Filtro por estado: todas, pendientes, en reparación o finalizadas.
+- Ordenamiento por **ID** y **fecha de ingreso**, ascendente o descendente.
+- **Paginación de 10 registros por página**; búsqueda, filtros y ordenamiento funcionan de manera conjunta.
+- Operaciones **CRUD** mediante los mismos modales reutilizables del Dashboard.
+- Indicadores generales conectados a los registros de la base de datos.
+
+### Interfaz
+
+- Diseño adaptable a diferentes tamaños de pantalla.
+- Paleta de colores de ServiTech EC y estilos CSS organizados por componente.
+- Iconos de **Lucide React** para navegación, botones y acciones.
+- Componentes reutilizables para facilitar el mantenimiento.
 
 ## Tecnologías
 
 | Capa | Tecnologías |
 | --- | --- |
 | Frontend | React, Vite, JavaScript, CSS, Axios, Lucide React |
-| Backend | Java 17, Spring Boot, Spring Web, Spring Data JPA, Bean Validation |
+| Backend | Java, Spring Boot, Spring Web, Spring Data JPA, Bean Validation |
 | Persistencia | Hibernate / JPA |
 | Base de datos | PostgreSQL |
 | Herramientas | Maven Wrapper, Visual Studio Code, pgAdmin 4, Git y GitHub |
@@ -44,51 +61,68 @@ Navegador
    │
    ▼
 React + Vite (http://localhost:5173)
-   │  Solicitudes HTTP / JSON con Axios
+   │  Solicitudes HTTP / JSON mediante Axios
    ▼
 Spring Boot API REST (http://localhost:8082)
    │
-   ├── Controller  → Recibe solicitudes
-   ├── Service     → Procesa la lógica de negocio
-   └── Repository  → Accede a los datos con Spring Data JPA
-                         │
-                         ▼
-                    PostgreSQL
-                  pendolema_vasquez
+   ├── Controller   → Recibe las solicitudes HTTP
+   ├── Service      → Ejecuta la lógica de negocio
+   └── Repository   → Gestiona el acceso a datos con JPA
+                          │
+                          ▼
+                      PostgreSQL
+                    pendolema_vasquez
 ```
 
 ## Estructura del proyecto
 
 ```text
 ServiTech-EC/
-├── frontend/                      # Aplicación React + Vite
+├── frontend/                           # Aplicación React + Vite
+│   ├── public/
 │   └── src/
-│       ├── assets/                # Recursos estáticos
-│       ├── components/            # Componentes reutilizables
-│       │   ├── dashboard/         # Tabla de órdenes recientes
-│       │   └── ordenes/           # Formulario de órdenes
-│       ├── pages/                 # DashboardPage
-│       ├── services/              # Cliente Axios de órdenes
-│       └── styles/                # Estilos CSS
-├── pendolema-vasquez/             # Backend Spring Boot
-│   └── src/main/
-│       ├── java/com/servitech/pendolemavasquez/
-│       │   ├── config/            # Configuración CORS
-│       │   ├── controller/        # API REST
-│       │   ├── entity/            # Entidad OrdenServicio
-│       │   ├── repository/        # Acceso a PostgreSQL
-│       │   └── service/           # Lógica de negocio
-│       └── resources/
-│           └── application.properties
+│       ├── assets/                     # Recursos de interfaz
+│       ├── components/
+│       │   ├── dashboard/
+│       │   │   └── OrdenesRecientes.jsx
+│       │   ├── ordenes/
+│       │   │   ├── TablaOrdenes.jsx
+│       │   │   ├── OrdenFormulario.jsx
+│       │   │   ├── OrdenDetalle.jsx
+│       │   │   ├── OrdenEditar.jsx
+│       │   │   └── OrdenEliminar.jsx
+│       │   ├── Header.jsx
+│       │   └── Sidebar.jsx
+│       ├── pages/
+│       │   ├── DashboardPage.jsx
+│       │   └── OrdenesPage.jsx
+│       ├── services/
+│       │   └── ordenServicioService.js
+│       ├── styles/                     # Estilos de páginas y componentes
+│       ├── App.jsx
+│       └── main.jsx
+├── pendolema-vasquez/                  # Backend Spring Boot
+│   ├── src/main/
+│   │   ├── java/com/servitech/pendolemavasquez/
+│   │   │   ├── config/                 # Configuración CORS
+│   │   │   ├── controller/             # Endpoints REST
+│   │   │   ├── entity/                 # Entidad OrdenServicio
+│   │   │   ├── repository/             # Acceso a PostgreSQL
+│   │   │   └── service/                # Lógica de negocio
+│   │   └── resources/
+│   │       └── application.properties
+│   ├── pom.xml
+│   └── mvnw.cmd
+├── .gitignore
 └── README.md
 ```
 
 ## Requisitos previos
 
-- **JDK 17** o una versión compatible con el proyecto.
-- **Node.js** y **npm** compatibles con la versión instalada de Vite.
-- **PostgreSQL** en ejecución.
-- Un usuario de PostgreSQL con permisos sobre la base de datos.
+- **JDK** compatible con la versión de Java configurada en `pendolema-vasquez/pom.xml` (el proyecto se inició con Java 17).
+- **Node.js** y **npm** compatibles con la versión de Vite del proyecto.
+- **PostgreSQL** en ejecución y un usuario con permisos para acceder a la base de datos.
+- **Git** para clonar el repositorio.
 
 ## Instalación y ejecución local
 
@@ -101,54 +135,58 @@ cd ServiTech-EC
 
 ### 2. Crear la base de datos
 
-Desde pgAdmin 4 o una consola SQL conectada a PostgreSQL, crear una base de datos denominada `pendolema_vasquez`:
+Desde pgAdmin 4 o una consola SQL conectada a PostgreSQL, crea la base de datos:
 
 ```sql
 CREATE DATABASE pendolema_vasquez;
 ```
 
-> La tabla `ordenes_servicio` se genera a partir de la entidad JPA en el entorno de desarrollo, de acuerdo con la configuración de Hibernate.
+> En el entorno de desarrollo, la tabla `ordenes_servicio` puede generarse a partir de la entidad JPA, según la configuración de Hibernate en `application.properties`.
 
 ### 3. Configurar y ejecutar el backend
 
-El backend utiliza la base de datos local en `localhost:5432` y se inicia en el puerto `8082`. Verifica que `pendolema-vasquez/src/main/resources/application.properties` tenga la configuración adecuada para tu entorno.
+Comprueba que `pendolema-vasquez/src/main/resources/application.properties` esté configurado para conectarse a PostgreSQL en `localhost:5432`, usar la base `pendolema_vasquez` y ejecutar la API en el puerto `8082`.
 
-En **PowerShell**, dentro de la carpeta `pendolema-vasquez`, proporciona la contraseña sin guardarla en el repositorio:
+En **PowerShell**, entra en la carpeta del backend y proporciona la contraseña de la base de datos mediante una variable de entorno (sin escribirla directamente en el repositorio):
 
 ```powershell
+cd pendolema-vasquez
 $clave = Read-Host "Contrasena de PostgreSQL" -AsSecureString
 $env:DB_PASSWORD = [System.Net.NetworkCredential]::new("", $clave).Password
 .\mvnw.cmd spring-boot:run
 ```
 
-La aplicación se ejecutará en `http://localhost:8082`.
+> La configuración del backend debe utilizar `${DB_PASSWORD}` para leer esa variable de entorno.
 
-### 4. Instalar e iniciar el frontend
+La API estará disponible en `http://localhost:8082`.
 
-En **otra terminal**, desde la carpeta `frontend`:
+### 4. Instalar y ejecutar el frontend
 
-```bash
+En **otra terminal**, desde la raíz del repositorio:
+
+```powershell
+cd frontend
 npm install
 npm run dev
 ```
 
-Abre `http://localhost:5173` en el navegador.
+Abre `http://localhost:5173` en tu navegador.
 
-> El backend y el frontend deben ejecutarse simultáneamente. El frontend está configurado para consumir la API local en el puerto `8082` y el backend permite solicitudes CORS desde `http://localhost:5173`.
+> El backend y el frontend deben ejecutarse simultáneamente. En desarrollo, el frontend consume la API local del puerto `8082` y el backend debe permitir las solicitudes CORS del origen `http://localhost:5173`.
 
 ## API REST
 
-Ruta base: `http://localhost:8082/api/ordenes-servicio`
+**Ruta base:** `http://localhost:8082/api/ordenes-servicio`
 
 | Método | Ruta | Operación |
 | --- | --- | --- |
-| `GET` | `/api/ordenes-servicio` | Listar órdenes |
-| `GET` | `/api/ordenes-servicio/{id}` | Consultar orden por ID |
-| `POST` | `/api/ordenes-servicio` | Crear orden |
-| `PUT` | `/api/ordenes-servicio/{id}` | Actualizar orden |
-| `DELETE` | `/api/ordenes-servicio/{id}` | Eliminar orden |
+| `GET` | `/api/ordenes-servicio` | Listar todas las órdenes |
+| `GET` | `/api/ordenes-servicio/{id}` | Consultar una orden por ID |
+| `POST` | `/api/ordenes-servicio` | Registrar una orden |
+| `PUT` | `/api/ordenes-servicio/{id}` | Actualizar una orden |
+| `DELETE` | `/api/ordenes-servicio/{id}` | Eliminar una orden |
 
-Ejemplo de solicitud para crear una orden:
+Ejemplo de solicitud para registrar una orden:
 
 ```json
 {
@@ -160,30 +198,67 @@ Ejemplo de solicitud para crear una orden:
 }
 ```
 
-El backend asigna por defecto el estado `PENDIENTE` y la fecha de ingreso cuando se crea la entidad sin esos valores. Los estados admitidos son `PENDIENTE`, `EN REPARACION` y `FINALIZADO`.
+Para registros nuevos, el backend asigna el estado `PENDIENTE` y la fecha de ingreso cuando esos valores no se proporcionan, de acuerdo con las reglas de la entidad.
 
 ## Pruebas y validación
 
-Se han realizado pruebas manuales de operaciones `GET`, `POST`, `PUT` y `DELETE` contra la API, con verificación de registros en PostgreSQL mediante pgAdmin 4. También se comprobó el rechazo de datos incorrectos mediante respuesta HTTP `400 Bad Request`.
+Se han comprobado manualmente:
 
-Para comprobar la compilación:
+- Las operaciones REST `GET`, `POST`, `PUT` y `DELETE`, incluidas verificaciones de sus efectos en PostgreSQL con pgAdmin 4.
+- El rechazo de datos inválidos mediante la respuesta HTTP `400 Bad Request`.
+- Los formularios y modales de **crear, consultar, editar y eliminar** desde las dos páginas principales.
+- La actualización de tarjetas y tablas después de crear, modificar o eliminar órdenes.
+- La búsqueda, los filtros por estado, el ordenamiento y la paginación del listado general.
+
+### Datos de prueba locales
+
+Para verificar el sistema se cargaron **20 órdenes ficticias** en PostgreSQL, distribuidas entre el **16 y el 20 de octubre de 2026**:
+
+| Estado | Cantidad |
+| --- | ---: |
+| Pendiente | 5 |
+| En reparación | 10 |
+| Finalizada | 5 |
+| **Total** | **20** |
+
+Se registraron **4 órdenes por día**, durante cinco días. Esto permitió comprobar el Dashboard (cinco órdenes recientes) y el listado general (dos páginas de diez registros).
+
+**Importante:** estos registros se insertaron directamente en una base de datos local y **no forman parte automáticamente del repositorio**. Al clonar el proyecto y crear una base nueva, las órdenes no aparecerán a menos que se carguen datos. Los números de ID tampoco tienen que empezar en 1, ya que PostgreSQL gestiona la secuencia de identificadores.
+
+Para revisar los datos existentes:
+
+```sql
+SELECT estado, COUNT(*) AS cantidad
+FROM public.ordenes_servicio
+GROUP BY estado
+ORDER BY estado;
+
+SELECT fecha_ingreso, COUNT(*) AS total_ordenes
+FROM public.ordenes_servicio
+GROUP BY fecha_ingreso
+ORDER BY fecha_ingreso;
+```
+
+### Compilación
+
+**Backend**, desde `pendolema-vasquez`:
 
 ```powershell
-# Backend: dentro de pendolema-vasquez
 .\mvnw.cmd clean compile
 ```
 
-```bash
-# Frontend: dentro de frontend
+**Frontend**, desde `frontend`:
+
+```powershell
 npm run build
 ```
 
 ## Seguridad y configuración
 
-- **No subir contraseñas ni credenciales** al repositorio.
-- La contraseña de PostgreSQL se obtiene mediante la variable de entorno `DB_PASSWORD`.
-- Excluir de Git los directorios generados (`node_modules/`, `dist/`, `target/`) y archivos de configuración privada como `.env`.
-- La configuración mostrada está destinada al desarrollo local; antes de publicar el sistema se deben revisar CORS, las credenciales y la configuración de producción.
+- **No subir contraseñas, tokens ni credenciales reales** a GitHub.
+- Usar la variable de entorno `DB_PASSWORD` para proporcionar la contraseña de PostgreSQL en desarrollo.
+- Excluir del control de versiones los archivos generados (`node_modules/`, `dist/`, `target/`) y configuraciones privadas (`.env` y similares).
+- La configuración documentada corresponde a un **entorno de desarrollo local**. Antes de desplegar el sistema públicamente, se deben revisar la autenticación, la autorización, la política CORS, los secretos y la configuración de producción.
 
 ## Autor
 
